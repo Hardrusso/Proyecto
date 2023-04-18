@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
+    <script src="https://kit.fontawesome.com/71b63c0b77.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./CSS/bulma.min.css">
+    
+    <title>Document</title>
+</head>
+<body>
+
+    <article class="panel-heading"> 
+        <div class="is-flex">
+            <i class="fa-solid fa-users fa-2xl pt-5"></i>
+            <h3 class="has-text-grey pl-5 is-size-2 pt+1" >
+            USUARIOS
+            </h3>
+        </div>
+
+        <p class="is-size-6 has-text-weight-light">
+            Estimado usuario, recuerde que las modificaciones realizadas en este apartado no se podran recuperar, si tiene dudas, comuniquese con el administrador del sistema
+        </p>     
+      
+    </article>
+    <br>
+    <div class="tabs is-centered">
+        <ul>
+          <li class="is-active">
+            <a href="./agregar.html">
+              <span class="icon is-small pl-7"><i class="fa-solid fa-plus fa-xl" style="color: #324f81;"></i></span>
+              <span >AGREGAR</span>
+            </a>
+          </li>
+          <li>
+            <a href="./usuarios.html">
+              <span class="icon is-small"><i class="fa-solid fa-users fa-xl" style="color :#324f81;"></i></span>
+              <span>LISTA DE USUARIOS</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="icon is-small"><i class="fa-solid fa-magnifying-glass fa-xl" style="color: #324f81;"></i></span>
+              <span>BUSCAR USUARIOS</span>
+            </a>
+          </li>
+        </ul>
+    </div>
+    <br>
+    <table class="table is-bordered is-fullwidth is-centered is-hoverable" >
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>DOCUMENTO</th>
+                <th>NOMBRES</th>
+                <th>APELLIDOS</th>
+                <th>TELEFONO</th>
+                <th>DIRECCION</th>
+                <th>MUNICIPIO</th>
+                <th>ACTUALIZAR</th>
+                <th>ELIMINAR</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>80853205</td>
+                <td>JONATHAN</td>
+                <td>CARO ESPINOSA</td>
+                <td>3505690930</td>
+                <td>XIRUMA 2 MK L12</td>
+                <td>YOPAL</td>
+                <td class="has-text-centered"><i class="fa-solid fa-rotate" style="color: #0b1093;"></i></td>
+                <td class="has-text-centered"><i class="fa-regular fa-trash-can" style="color: #da4a34;"></i></td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>1116774555</td>
+                <td>BLANCA AZUCENA</td>
+                <td>CARRILLO PUERTA</td>
+                <td>3505690929</td>
+                <td>VDA LAS ATALAYAS</td>
+                <td>AGUAZUL</td>
+                <td class="has-text-centered"><i class="fa-solid fa-rotate" style="color: #0b1093;"></i></td>
+                <td class="has-text-centered"><i class="fa-regular fa-trash-can" style="color: #da4a34;"></i></td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>9395298</td>
+                <td>LUIS ALBERTO</td>
+                <td>RINCON ACEVEDO</td>
+                <td>3134847413</td>
+                <td>CIUDADELA LA ESPERANZA BL3 - 104</td>
+                <td>CHAMEZA</td>
+                <td class="has-text-centered"><i class="fa-solid fa-rotate" style="color: #0b1093;"></i></td>
+                <td class="has-text-centered"><i class="fa-regular fa-trash-can" style="color: #da4a34;"></i></td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>1116545345</td>
+                <td>BRAYAN ERNEY</td>
+                <td>MERCHAN GUTIERREZ</td>
+                <td>3132161619</td>
+                <td>CARRERA 18 # 21 - 05</td>
+                <td>HATO COROZAL</td>
+                <td class="has-text-centered"><i class="fa-solid fa-rotate" style="color: #0b1093;"></i></td>
+                <td class="has-text-centered"><i class="fa-regular fa-trash-can" style="color: #da4a34;"></i></td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>74754395</td>
+                <td>JOSE OVELIO</td>
+                <td>MENDIVELSO GOMEZ</td>
+                <td>3148704453</td>
+                <td>DIAGONAL 23E #16 -12 </td>
+                <td>MANI</td>
+                <td class="has-text-centered"><i class="fa-solid fa-rotate" style="color: #0b1093;"></i></td>
+                <td class="has-text-centered"><i class="fa-regular fa-trash-can" style="color: #da4a34;"></i></td>
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>74754395</td>
+                <td>GERMAN LEMUS</td>
+                <td>RODRIGUEZ </td>
+                <td>3118542986</td>
+                <td>CALLE 15 # 11 - 38</td>
+                <td>OROCUE</td>
+                <td class="has-text-centered"><i class="fa-solid fa-rotate" style="color: #0b1093;"></i></td>
+                <td class="has-text-centered"><i class="fa-regular fa-trash-can" style="color: #da4a34;"></i></td>
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td>74754882</td>
+                <td>JORGE ANTONIO</td>
+                <td>CARDENAS CACERES</td>
+                <td>3174268371</td>
+                <td>CALLE 15A # 1 ESTE - 05</td>
+                <td>PAZ DE ARIPORO</td>
+                <td class="has-text-centered"><i class="fa-solid fa-rotate" style="color: #0b1093;"></i></td>
+                <td class="has-text-centered"><i class="fa-regular fa-trash-can" style="color: #da4a34;"></i></td>
+            </tr>
+
+            <tr>
+                <td>8</td>
+                <td>79820258</td>
+                <td>EDGAR CACERES</td>
+                <td>PINZON </td>
+                <td>3143123221</td>
+                <td>CARRERA 12 # 22 - 36</td>
+                <td>PORE</td>
+                <td class="has-text-centered"><i class="fa-solid fa-rotate" style="color: #0b1093;"></i></td>
+                <td class="has-text-centered"><i class="fa-regular fa-trash-can" style="color: #da4a34;"></i></td>
+            </tr>
+
+            <tr>
+                <td>9</td>
+                <td>19472349</td>
+                <td>FABIO NORBERTO</td>
+                <td>ZARATE SANCHEZ</td>
+                <td>3134927754</td>
+                <td>CALLE 13 # 25 - 21</td>
+                <td>NUNCHIA</td>
+                <td class="has-text-centered"><i class="fa-solid fa-rotate" style="color: #0b1093;"></i></td>
+                <td class="has-text-centered"><i class="fa-regular fa-trash-can" style="color: #da4a34;"></i></td>
+            </tr>
+
+            <tr>
+                <td>10</td>
+                <td>74270103</td>
+                <td>MIGUEL ANGEL</td>
+                <td>PAVA AVENDAÑO</td>
+                <td>3143812313</td>
+                <td>VDA CARIBAYONA</td>
+                <td>VILLANUEVA</td>
+                <td class="has-text-centered"><i class="fa-solid fa-rotate" style="color: #0b1093;"></i></td>
+                <td class="has-text-centered"><i class="fa-regular fa-trash-can" style="color: #da4a34;"></i></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+    
+
+
+    
+</body>
+</html>
