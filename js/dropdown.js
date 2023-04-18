@@ -20,6 +20,11 @@ const productoList = document.querySelector('.drop_list_product');
 const dropArrow2 = document.querySelector('.drop_arrow2');
 
 productoTitle.addEventListener('click', () => {
+    if(productoTitle.style.backgroundColor != 'red'){
+        productoTitle.style.backgroundColor = 'red';
+    }else{
+        productoTitle.style.backgroundColor = '#24272F';
+    }
     productoList.classList.toggle('active2');
     dropArrow2.classList.toggle('drop_arrow--rotate2');
 });
