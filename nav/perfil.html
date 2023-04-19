@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/bulma.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>SISTEMA DE INVENTARIO</title>
+</head>
+<body>
+<header>
+    <section class="contenedor is-flex">
+    <div class="container_nav">
+    <div class="py-6 cont_user">
+        <img class="img_user" src="/images/user.png" alt="" >
+        <h3 class="title is-4 has-text-centered mb-0 has-text-white">Nombre de Usuario</h3>
+        <h4 class="is-size-6 has-text-centered has-text-white">Administrador</h4>
+    </div>
+
+    <div class="">
+        <nav class="nav">
+            <a class="nav_a" href="../index.html"><i class='bx bx-home-alt bx-sm pr-2'></i>Home</a>
+            <a class="nav_a" href="perfil.html"><i class='bx bx-user bx-sm pr-2'></i>Perfil</a>
+            <div class="drop">
+                <div class="drop1">
+                <p class="drop_title"><i class='bx bxs-user-account bx-sm pr-2'></i>Usuarios
+                    <span>
+                    <i class='bx bx-chevron-down bx-sm drop_arrow'></i>
+                    </span>
+                </p>
+                <ul class="drop_list">
+                    <a href="usuarios.html"><i class='bx bxs-spreadsheet bx-sm pr-2'></i>lista Usuarios</a>
+                    <a href="agregar.html"><i class='bx bx-plus bx-sm pr-2'></i>Nuevo Usuario</a>
+                </ul>
+                </div>
+            </div>
+
+            <div class="drop1">
+                <div class="drop-1">
+                <p class="drop_title_product"><i class='bx bx-package bx-sm pr-2'></i>Productos
+                    <span>
+                    <i class='bx bx-chevron-down bx-sm drop_arrow2'></i>
+                    </span>
+                </p>
+                <ul class="drop_list_product">
+                    <a href=""><i class='bx bxs-spreadsheet bx-sm pr-2'></i>Lista Productos</a>
+                    <a href=""><i class='bx bx-plus bx-sm pr-2'></i>Nuevo Producto</a>
+                </ul>
+                </div>
+            </div>
+            <a class="nav_a" href=""><i class='bx bx-phone bx-sm pr-2'></i>Contactos</a>
+            <a class="nav_a" href=""><i class='bx bx-building-house bx-sm pr-2'></i>Empresa</a>
+        </nav>
+    </div>
+</div>
+
+    <div class="contenedor_derecha pl-5">
+        <div class="panel_arriba ">
+            <i class='bx bx-transfer-alt bx-sm boton' id="ocultar"></i>
+            <i class='bx bx-log-out bx-sm boton'></i>
+        </div>
+        <article class="panel-heading"> 
+            <div class="is-flex">
+                <i class="fa-solid fa-users fa-2xl pt-5"></i>
+                <h3 class="has-text-grey is-size-2 " >HOLA!</h3>
+            </div>
+            <p class="is-size-6 has-text-weight-light">
+                Nombre de Usuario!
+            </p>     
+        </article>
+
+        <form action="" class="box is-flex is-justify-content-space-around ">
+            <div class="formulario_foto mx-5">
+                <img class="img_user" src="../images/user.png" alt="">
+                <div class=""><input type="file" name="" id=""></div>
+            </div>
+            <div class="formulario_datos">
+            <div class="is-flex py-4">
+            <div class="field mr-5">
+                <label class="label">DOCUMENTO</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Ingrese su documento de identidad" autocomplete="off" value="Documento del Usuario">
+                </div>
+            </div>
+            <div class="field mr-5">
+                <label class="label">NOMBRES</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Escriba sus nombres" autocomplete="off" value="Nombres del Usuario">
+                </div>
+            </div>
+            <div class="field mr-5">
+                <label class="label">APELLIDOS</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Escriba sus apellidos" autocomplete="off" value="Apellidos del Usuario">
+                </div>
+            </div>
+        </div>
+    
+        <div class="is-flex py-4">
+            <div class="field mr-5">
+                <label class="label">TELEFONO</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Digite su numero de contacto" autocomplete="off" value="Contacto del Usuario">
+                </div>
+            </div>
+            <div class="field mr-5">
+                <label class="label">DIRECCION</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Direccion completa" autocomplete="off" value="Residencia del Usuario">
+                </div>
+            </div>
+            <div class="field mr-5">
+                <label class="label">Ciudad</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Municipio/Departamento" autocomplete="off" value="Yopal - Casanare">
+                </div>
+            </div>
+            </div>
+            <div class="has-text-centered my-4"><button class="button is-info title is-6 py-5" type="submit"><i class='bx bx-save bx-sm pr-1'></i>GUARDAR CAMBIOS</button></div>
+        </div>
+        
+        </form>
+
+    </div>
+</section>
+</header>
+    <script src="../js/dropdown.js"></script>
+</body>
+</html>

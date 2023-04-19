@@ -4,8 +4,13 @@
     display: flex;
     flex-direction: column;
     background: rgb(36,39,47);
-    
+
 }
+
+.container-hide {
+    transform: translateX(-100%);
+}
+
 .cont_user{
 display: flex;
 align-items: center;
@@ -26,9 +31,11 @@ border-bottom: 2px solid red;
     color: #fff;
     cursor: pointer;
     font-size: 1rem;
+    display: flex;
+    align-content: center;
 }
 .nav_a:hover,nav p:hover{
-    background: rgba(255, 255, 255, 0.425);
+    background: rgba(255, 255, 255, 0.233);
     color: #fff;
 }
 .listas{
@@ -91,9 +98,57 @@ border-bottom: 2px solid red;
 
 .contenedor_derecha{
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    background: rgb(245,245,245);
+}
+.container-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 0 !important;
 }
 
+.iconos{
+    margin-top: 50px;
+    border: 1px solid rgb(216,216,216);
+    color: rgb(37,53,86);
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+.iconos h2{
+    padding: 10px 60px;
+    border-bottom: 1px solid rgb(216,216,216);
+}
 
+.iconos:hover{
+    color: #EC5252;
+}
+.iconos:hover h2{
+    background: #EC5252;
+    color: #fff;
+}
+.panel_arriba{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid rgb(216,216,216);
+    background: white;
+    border-radius: 5px;
+    margin-bottom: 60px;
+}
+.boton:hover{
+    cursor: pointer;
+    color: #EC5252;
+}
+
+.field input{
+    width: 350px;
+}
+.formulario_foto input{
+    width: 250px;
+}

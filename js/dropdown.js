@@ -28,3 +28,13 @@ productoTitle.addEventListener('click', () => {
     productoList.classList.toggle('active2');
     dropArrow2.classList.toggle('drop_arrow--rotate2');
 });
+
+
+const ocultarBtn = document.getElementById("ocultar");
+const containerNav = document.querySelector(".container_nav");
+const containerDerecha = document.querySelector(".contenedor_derecha");
+
+ocultarBtn.addEventListener("click", () => {
+  containerNav.classList.toggle("container-hide");
+  containerDerecha.classList.toggle("container-full");
+});

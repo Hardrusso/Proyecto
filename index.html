@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/bulma.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Document</title>
+    <title>SISTEMA DE INVENTARIO</title>
 </head>
 <body>
 <header>
@@ -21,61 +21,84 @@
 
     <div class="">
         <nav class="nav">
-            <a class="nav_a" href="">Home</a>
-            <a class="nav_a" href="">Perfil</a>
+            <a class="nav_a" href="index.html"><i class='bx bx-home-alt bx-sm pr-2'></i>Home</a>
+            <a class="nav_a" href="nav/perfil.html"><i class='bx bx-user bx-sm pr-2'></i>Perfil</a>
             <div class="drop">
                 <div class="drop1">
-                <p class="drop_title">Usuarios
+                <p class="drop_title"><i class='bx bxs-user-account bx-sm pr-2'></i>Usuarios
                     <span>
                     <i class='bx bx-chevron-down bx-sm drop_arrow'></i>
                     </span>
                 </p>
                 <ul class="drop_list">
-                    <a href="#">lista Usuarios</a>
-                    <a href="#">Nuevo Usuario</a>
+                    <a href="nav/usuarios.html"><i class='bx bxs-spreadsheet bx-sm pr-2'></i>lista Usuarios</a>
+                    <a href="nav/agregar.html"><i class='bx bx-plus bx-sm pr-2'></i>Nuevo Usuario</a>
                 </ul>
                 </div>
             </div>
 
             <div class="drop1">
                 <div class="drop-1">
-                <p class="drop_title_product">Productos
+                <p class="drop_title_product"><i class='bx bx-package bx-sm pr-2'></i>Productos
                     <span>
                     <i class='bx bx-chevron-down bx-sm drop_arrow2'></i>
                     </span>
                 </p>
                 <ul class="drop_list_product">
-                    <li class="listas"><a href="#">Lista Productos</a></li>
-                    <li class="listas"><a href="#">Nuevo Producto</a></li>
+                    <a href="#"><i class='bx bxs-spreadsheet bx-sm pr-2'></i>Lista Productos</a>
+                    <a href="#"><i class='bx bx-plus bx-sm pr-2'></i>Nuevo Producto</a>
                 </ul>
                 </div>
             </div>
-            <a class="nav_a" href="">Contactos</a>
-            <a class="nav_a" href="">Empresa</a>
+            <a class="nav_a" href=""><i class='bx bx-phone bx-sm pr-2'></i>Contactos</a>
+            <a class="nav_a" href=""><i class='bx bx-building-house bx-sm pr-2'></i>Empresa</a>
         </nav>
     </div>
 </div>
 
     <div class="contenedor_derecha pl-5">
-        <div class="panel_arriba box">
-            <i class='bx bx-transfer-alt'></i>
+        <div class="panel_arriba ">
+            <i class='bx bx-transfer-alt bx-sm boton' id="ocultar"></i>
+            <i class='bx bx-log-out bx-sm boton'></i>
         </div>
-        <div class="panel_titulo mb-6">
-            <h1 class="title is-2 mb-0">Bienvenidos</h1>
-            <h3 class="is-size-4">Este es un sistema de inventarios</h3>
-        </div>
-        <div class="panel_iconos is-flex">
-            <div class="iconos">
-                <h2>Usuarios</h2>
-                <i class='bx bx-package bx-lg'></i>
-                <p>12 Registrados</p>
+        <article class="panel-heading"> 
+            <div class="is-flex">
+                <i class="fa-solid fa-users fa-2xl pt-5"></i>
+                <h3 class="has-text-grey is-size-2" >BIENVENIDOS</h3>
+            </div>
+            <p class="is-size-6 has-text-weight-light">
+                Estimado usuario, este es un sistema de inventario para que lleves el control de tus productos!
+            </p>     
+        </article>
+
+        <div class="panel_iconos is-flex is-justify-content-space-around is-align-content-center">
+            <a href="#" class="iconos has-text-centered">
+                <h2 class="title is-5">PERFIL</h2>
+                <i class='bx bx-user bx-lg mb-3'></i>
+                <p class="is-size-5 pb-4">Nombre de usuario</p>
                 
-            </div>
-            <div class="iconos">
-                <h2>Productos</h2>
-                <i class='bx bx-package bx-lg'></i>
-                <p>115 Registrados</p>
-            </div>
+            </a>
+            <a href="nav/usuarios.html" class="iconos has-text-centered">
+                <h2 class="title is-5">USUARIOS</h2>
+                <i class='bx bxs-user-account bx-lg mb-3'></i>
+                <p class="is-size-5 pb-4">10 Registrados</p>
+                
+            </a>
+            <a href="#" class="iconos has-text-centered">
+                <h2 class="titulo_productos title is-5">PRODUCTOS</h2>
+                <i class='bx bx-package bx-lg mb-3'></i>
+                <p class="is-size-5">35 Registrados</p>
+            </a>
+            <a href="#" class="iconos has-text-centered">
+                <h2 class="titulo_productos title is-5">CONTACTOS</h2>
+                <i class='bx bx-phone bx-lg mb-3'></i>
+                
+            </a>
+            <a href="#" class="iconos has-text-centered">
+                <h2 class="titulo_productos title is-5">EMPRESA</h2>
+                <i class='bx bx-building-house bx-lg mb-3'></i>
+                
+            </a>
         </div>
     </div>
 </section>
