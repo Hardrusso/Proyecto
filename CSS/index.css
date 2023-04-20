@@ -180,3 +180,6 @@ border-bottom: 2px solid red;
 #contenido{
     width: 1200px;
 }
+#contenedorMain{
+    border: 1px solid gray;
+}
