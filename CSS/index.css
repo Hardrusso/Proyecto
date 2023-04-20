@@ -146,9 +146,37 @@ border-bottom: 2px solid red;
     color: #EC5252;
 }
 
+.icon_detalles{
+    cursor: pointer;
+}
+
 .field input{
     width: 350px;
 }
 .formulario_foto input{
     width: 250px;
+}
+.img_logo{
+    width: 300px;
+}
+.info_completa{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+
+}
+.info_empresa{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin-left: 20px;
+    width: 350px;
+}
+
+#contenido{
+    width: 1200px;
 }
