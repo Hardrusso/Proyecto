@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/bulma.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/71b63c0b77.js" crossorigin="anonymous"></script>
     <title>Productos</title>
@@ -79,13 +79,13 @@
     <div class="tabs is-centered">
         <ul class="list-unstyled ">
             <li class="is-active">
-            <a style="text-decoration: none;" href="agregar.html">
+            <a style="text-decoration: none;" href="/nav/agregar_productos.html">
                 <span class="icon is-small pl-7"><i class="fa-solid fa-plus fa-xl" style="color: #324f81;"></i></span>
                 <span >AGREGAR</span>
             </a>
             </li>
             <li>
-            <a style="text-decoration: none;" href="usuarios.html">
+            <a style="text-decoration: none;" href="/nav/productos.html">
                 <span class="icon is-small"><i class='bx bx-package bx-md pr-2' style='color:#324f81'  ></i></span>
                 <span>LISTA DE PRODUCTOS</span>
             </a>
@@ -101,124 +101,134 @@
     <br>
 
     <!-- contenido de los poductos -->
-    <div >
-        <ul>
-            <li>
-                <div   class="is-flex " style="background-color:#fff, padding-bottom=20px;"> 
+    
+    <ul class="is-bordered">
+        <li>
+            <div class="columns pb-5">
+                <div class="column is-one-fifth">
                     <div >
-                        <img  class="image is-128x128" src="../images/lanieve500.jpg" alt="123123123">
-                    </div>
-                    <div  class="pl-5">
-                        <div  >
-                            <p class="text-uppercase text-center media-product-title"><strong>1 - Harina la nieve 500 gr</strong></p>
-                        </div>
-                            
-                        <div  class="container-fluid">
-                            <div  class="row">
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-barcode"></i> <strong>Código de barras:</strong> 11111</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="far fa-money-bill-alt"></i> <strong>Precio:</strong> $1.800</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-box"></i> <strong>Disponibles:</strong> 500</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-box-open"></i> <strong>Vendidos:</strong> 0</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-calendar-alt"></i> <strong>Vencimiento:</strong> 14/05/23</div>
-                            </div>
-
-                        <div  style="text-align: right;">
-                                <span><i class="fas fa-tools pr-4"></i>OPCIONES: <i class="icon_detalles fa-solid fa-rotate mr-3 pl-3" style="color: #0b1093;"></i> <i class="icon_detalles fa-regular fa-trash-can" style="color: #da4a34;"></i></span>
-                                	
-                        </div>
+                        <img  class="image is-256x256" src="../images/lanieve500.jpg" alt="123123123">
                     </div>
                 </div>
-            </li>
-
-            <hr>
-
-            <li>
-                <div   class="is-flex " style="background-color:#fff, padding-bottom=20px;"> 
-                    <div >
-                        <img  class="image is-128x128" src="../images/chicamocha1.jpg" alt="123123123">
+                <div class="column ">
+                    <div style="text-align: center;">
+                        <p><strong>1 - Harina la nieve 500 gr</strong></p>
                     </div>
-                    <div  class="pl-5">
-                        <div  >
-                            <p class="text-uppercase text-center media-product-title"><strong>2 - Arroz Chicamocha 1 Kg</strong></p>
-                        </div>
-                            
-                        <div  class="container-fluid">
-                            <div  class="row">
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-barcode"></i> <strong>Código de barras:</strong> 22222</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="far fa-money-bill-alt"></i> <strong>Precio:</strong> $4.000</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-box"></i> <strong>Disponibles:</strong> 120</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-box-open"></i> <strong>Vendidos:</strong> 10</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-calendar-alt"></i> <strong>Vencimiento:</strong> 29/10/23</div>
-                            </div>
-
-                        <div  style="text-align: right;">
-                                <span><i class="fas fa-tools pr-4"></i>OPCIONES: <i class="icon_detalles fa-solid fa-rotate mr-3 pl-3" style="color: #0b1093;"></i> <i class="icon_detalles fa-regular fa-trash-can" style="color: #da4a34;"></i></span>
-                                	
-                        </div>
+                    <br>
+                    <div class="columns is-gapless is-multiline is-mobile">
+                       <div class="column is-half"><i class="fas fa-barcode"></i> <strong>Código de barras:</strong> 11111</div>
+                       <div class="column is-half"><i class="far fa-money-bill-alt"></i> <strong>Precio:</strong> $1.800</div>
+                    </div>
+                    <div class="columns is-gapless is-multiline is-mobile">
+                        <div class="column is-half"><i class="fas fa-box"></i> <strong>Disponibles:</strong> 500</div>
+                        <div class="column is-half"><i class="fas fa-box-open"></i> <strong>Vendidos:</strong> 0</div>
+                     </div>
+                     <div class="columns is-gapless is-multiline is-mobile">
+                        <div class="column is-half"><i class="fas fa-calendar-alt"></i> <strong>Vencimiento:</strong> 14/05/23</div>
+                        <div></div>
+                     </div>
+                     <div style="text-align: center;">
+                        <p><i class="fas fa-tools pr-4"></i>OPCIONES: <i class="icon_detalles fa-solid fa-rotate mr-3 pl-3" style="color: #0b1093;"></i> <i class="icon_detalles fa-regular fa-trash-can" style="color: #da4a34;"></i></p>
                     </div>
                 </div>
-            </li>
+            </div>
+        </li>
 
-            <hr>
-
-            <li>
-                <div   class="is-flex " style="background-color:#fff, padding-bottom=20px;"> 
+        <li>
+            <div class="columns pb-5">
+                <div class="column is-one-fifth">
                     <div >
-                        <img  class="image is-128x128" src="../images/premiergirasol3lt.jpg" alt="123123123">
-                    </div>
-                    <div  class="pl-5">
-                        <div  >
-                            <p class="text-uppercase text-center media-product-title"><strong>3 - Aceite Premier Girasol 3000 ml</strong></p>
-                        </div>
-                            
-                        <div  class="container-fluid">
-                            <div  class="row">
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-barcode"></i> <strong>Código de barras:</strong> 33333</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="far fa-money-bill-alt"></i> <strong>Precio:</strong> $45.000</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-box"></i> <strong>Disponibles:</strong> 85</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-box-open"></i> <strong>Vendidos:</strong> 4</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-calendar-alt"></i> <strong>Vencimiento:</strong> 29/01/24</div>
-                            </div>
-
-                        <div  style="text-align: right;">
-                                <span><i class="fas fa-tools pr-4"></i>OPCIONES: <i class="icon_detalles fa-solid fa-rotate mr-3 pl-3" style="color: #0b1093;"></i> <i class="icon_detalles fa-regular fa-trash-can" style="color: #da4a34;"></i></span>
-                                	
-                        </div>
+                        <img  class="image is-256x256" src="../images/chicamocha1.jpg" alt="123123123">
                     </div>
                 </div>
-            </li>
-
-            <hr>
-
-            <li>
-                <div   class="is-flex " style="background-color:#fff, padding-bottom=20px;"> 
-                    <div >
-                        <img  class="image is-128x128" src="../images/producto.png" alt="123123123">
+                <div class="column">
+                    <div style="text-align: center;">
+                        <p><strong>2 - Arroz Chicamocha 1 Kg</strong></p>
                     </div>
-                    <div  class="pl-5">
-                        <div  >
-                            <p class="text-uppercase text-center media-product-title"><strong>4 - Jamón Ibérico</strong></p>
-                        </div>
-                            
-                        <div  class="container-fluid">
-                            <div  class="row">
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-barcode"></i> <strong>Código de barras:</strong> 44444</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="far fa-money-bill-alt"></i> <strong>Precio:</strong> $450.000</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-box"></i> <strong>Disponibles:</strong> 1</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-box-open"></i> <strong>Vendidos:</strong> 2</div>
-                                <div  class="col-12 col-md-6 col-lg-3 col-product"><i class="fas fa-calendar-alt"></i> <strong>Vencimiento:</strong> 29/01/25</div>
-                            </div>
-
-                        <div  style="text-align: right;">
-                                <span><i class="fas fa-tools pr-4"></i>OPCIONES: <i class="icon_detalles fa-solid fa-rotate mr-3 pl-3" style="color: #0b1093;"></i> <i class="icon_detalles fa-regular fa-trash-can" style="color: #da4a34;"></i></span>
-                                	
-                        </div>
+                    <br>
+                    <div class="columns is-gapless is-multiline is-mobile">
+                       <div class="column is-half"><i class="fas fa-barcode"></i> <strong>Código de barras:</strong> 22222</div>
+                       <div class="column is-half"><i class="far fa-money-bill-alt"></i> <strong>Precio:</strong> $4.000</div>
+                    </div>
+                    <div class="columns is-gapless is-multiline is-mobile">
+                        <div class="column is-half"><i class="fas fa-box"></i> <strong>Disponibles:</strong> 120</div>
+                        <div class="column is-half"><i class="fas fa-box-open"></i> <strong>Vendidos:</strong> 10</div>
+                     </div>
+                     <div class="columns is-gapless is-multiline is-mobile">
+                        <div class="column is-half"><i class="fas fa-calendar-alt"></i> <strong>Vencimiento:</strong> 29/10/23</div>
+                        <div></div>
+                     </div>
+                     <div style="text-align: center;">
+                        <p><i class="fas fa-tools pr-4"></i>OPCIONES: <i class="icon_detalles fa-solid fa-rotate mr-3 pl-3" style="color: #0b1093;"></i> <i class="icon_detalles fa-regular fa-trash-can" style="color: #da4a34;"></i></p>
                     </div>
                 </div>
-            </li>
+            </div>
+        </li>
 
-        </ul>
-    </div>
+        <li>
+            <div class="columns pb-5">
+                <div class="column is-one-fifth">
+                    <div >
+                        <img  class="image is-256x256" src="../images/premiergirasol3lt.jpg" alt="123123123">
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="text-align: center;">
+                        <p><strong>3 - Aceite Premier Girasol 3000 ml</strong></p>
+                    </div>
+                    <br>
+                    <div class="columns is-gapless is-multiline is-mobile">
+                       <div class="column is-half"><i class="fas fa-barcode"></i> <strong>Código de barras:</strong> 33333</div>
+                       <div class="column is-half"><i class="far fa-money-bill-alt"></i> <strong>Precio:</strong> $45.000</div>
+                    </div>
+                    <div class="columns is-gapless is-multiline is-mobile">
+                        <div class="column is-half"><i class="fas fa-box"></i> <strong>Disponibles:</strong> 85</div>
+                        <div class="column is-half"><i class="fas fa-box-open"></i> <strong>Vendidos:</strong> 4</div>
+                     </div>
+                     <div class="columns is-gapless is-multiline is-mobile">
+                        <div class="column is-half"><i class="fas fa-calendar-alt"></i> <strong>Vencimiento:</strong> 9/01/24</div>
+                        <div></div>
+                     </div>
+                     <div style="text-align: center;">
+                        <p><i class="fas fa-tools pr-4"></i>OPCIONES: <i class="icon_detalles fa-solid fa-rotate mr-3 pl-3" style="color: #0b1093;"></i> <i class="icon_detalles fa-regular fa-trash-can" style="color: #da4a34;"></i></p>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="columns pb-5">
+                <div class="column is-one-fifth">
+                    <div >
+                        <img  class="image is-256x256" src="../images/producto.png" alt="123123123">
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="text-align: center;">
+                        <p><strong>4 - Jamón Ibérico de Bellota</strong></p>
+                    </div>
+                    <br>
+                    <div class="columns is-gapless is-multiline is-mobile">
+                       <div class="column is-half"><i class="fas fa-barcode"></i> <strong>Código de barras:</strong> 44444</div>
+                       <div class="column is-half"><i class="far fa-money-bill-alt"></i> <strong>Precio:</strong> $450.000</div>
+                    </div>
+                    <div class="columns is-gapless is-multiline is-mobile">
+                        <div class="column is-half"><i class="fas fa-box"></i> <strong>Disponibles:</strong> 1</div>
+                        <div class="column is-half"><i class="fas fa-box-open"></i> <strong>Vendidos:</strong> 2</div>
+                     </div>
+                     <div class="columns is-gapless is-multiline is-mobile">
+                        <div class="column is-half"><i class="fas fa-calendar-alt"></i> <strong>Vencimiento:</strong> 9/01/25</div>
+                        <div></div>
+                     </div>
+                     <div style="text-align: center;">
+                        <p><i class="fas fa-tools pr-4"></i>OPCIONES: <i class="icon_detalles fa-solid fa-rotate mr-3 pl-3" style="color: #0b1093;"></i> <i class="icon_detalles fa-regular fa-trash-can" style="color: #da4a34;"></i></p>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+  
 
         
 </section>
