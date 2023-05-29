@@ -1,6 +1,6 @@
 <?php 
 
-require_once('./includes/conexion.php');
+require_once('./php/conexion.php');
 
 $usuario = limpiar_cadena($_POST['login_usuario']);
 $clave = limpiar_cadena($_POST['login_clave']);

@@ -1,3 +1,6 @@
+<?php 
+require_once('./php/conexion.php');
+require_once('./php/main.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

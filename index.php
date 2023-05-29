@@ -1,4 +1,4 @@
-<?php require_once('includes/conexion.php'); ?>
+<?php require_once('./php/conexion.php'); ?>
 <?php require_once('./includes/header.php'); ?>
 
 <section class="contenedor is-flex"><!--Abrimos un contenedor para toda la pagina mostrada y le damos propiedad flex-->

@@ -130,4 +130,9 @@ function alertaLogin($indicador,$campo,$ingresado){
     </script>";
 }
 
+function mostrarAlerta($errores,$parametro){
+	$alerta = "";
+	$alerta = "<p class='error'>". $errores[$parametro]."</p>";
+	return $alerta;
+}
 ?>

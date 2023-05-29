@@ -54,4 +54,3 @@ CREATE TABLE articulos(
     CONSTRAINT fk_articulo_aprendiz FOREIGN KEY (id_aprendiz) REFERENCES aprendices(id_aprendiz)
 )Engine=InnoDB;
 
-INSERT INTO usuarios VALUES (NULL,1118569186,'Eduar Arvey', 'Cardenas Cruz','educruz','12345');
