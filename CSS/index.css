@@ -143,7 +143,8 @@ border-bottom: 2px solid red;
 }
 .boton:hover{
     cursor: pointer;
-    color: #EC5252;
+    background: #EC5252;
+    
 }
 
 .icon_detalles{

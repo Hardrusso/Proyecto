@@ -116,3 +116,16 @@ if (e.keyCode === 27) { // La tecla 'Escape' cierra todos los modals
 }
 });
 });
+
+
+const alerta = document.querySelector(".alerta");
+
+alerta.innerHTML =  `<div class="message is-danger">
+<div class="message-header">
+    <p>Error al iniciar sesion</p>
+</div>
+<div class="message-body">
+<strong>Usuario</strong> no encontrado o no cumple con los parametros!
+</div>
+</div>`;
+alerta.style = `position:absolute;`
