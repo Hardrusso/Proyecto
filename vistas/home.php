@@ -1,9 +1,8 @@
         <article class="panel-heading"> 
             <div class="is-flex">
-                <i class="fa-solid fa-users fa-2xl pt-5"></i>
-                <h3 class="has-text-grey is-size-2" >BIENVENIDOS</h3>
+                <h3 class=" is-size-2" >BIENVENIDOS</h3>
             </div>
-            <p class="is-size-6 has-text-weight-light">
+            <p class="is-size-6 ">
                 Estimado usuario, este es un sistema de inventario para que lleves el control de tus productos!
             </p>     
         </article>

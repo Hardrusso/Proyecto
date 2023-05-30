@@ -139,12 +139,9 @@ border-bottom: 2px solid red;
     border: 1px solid rgb(216,216,216);
     background: white;
     border-radius: 5px;
-    margin-bottom: 60px;
 }
 .boton:hover{
     cursor: pointer;
-    background: #EC5252;
-    
 }
 
 .icon_detalles{

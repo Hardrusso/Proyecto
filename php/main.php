@@ -108,28 +108,6 @@ function paginador_tablas($pagina,$Npaginas,$url,$botones){
 }
 
 
-function alertaLogin($indicador,$campo,$ingresado){
-
-	if($campo == "USUARIO"){
-		$ingresado = "no esta definido ";
-	}else{
-		$ingresado = "no esta definida ";
-	}
-	echo
-	"<script>
-        const alerta = document.querySelector('.alerta');
-        alerta.innerHTML =  `
-        <div class='message is-danger'>
-            <div class='message-header'>
-                <p>Error al iniciar sesion</p>
-            </div>
-            <div class='message-body'>
-                $indicador <strong>$campo </strong>$ingresado o no existe!
-            </div>
-        </div>`;
-    </script>";
-}
-
 function mostrarAlerta($errores,$parametro){
 	$alerta = "";
 	if(isset($errores[$parametro]) && !empty($parametro)){
@@ -150,6 +128,14 @@ function BorrarErrores(){
 
 	if(isset($_SESSION['errorRegistrado'])){
 		$_SESSION['errorRegistrado']=null;
+	}
+
+	if(isset($_SESSION['errorPassword'])){
+		$_SESSION['errorPassword']=null;
+	}
+	
+	if(isset($_SESSION['usuarioNoExiste'])){
+		$_SESSION['usuarioNoExiste']=null;
 	}
 }
 ?>

@@ -29,11 +29,16 @@ if(is_numeric($documento)){
 
 if(verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$nombres)){
     $errores['nombres']= "El nombre no cumple con los parametros establecidos";
+}{
+    $nombres = ucwords(strtolower($nombres));
 }
 
 if(verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$apellidos)){
     $errores['apellidos']= "El apellido no cumple con los parametros establecidos";
+}{
+    $apellidos = ucwords(strtolower($apellidos));
 }
+
 
 if(verificar_datos("[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$usuario)){
     $errores['usuario']= "El usuario no cumple con los parametros establecidos";
@@ -54,36 +59,38 @@ if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
 }
 
 
-if($clave_1 =! $clave_2){
+if($clave_1 != $clave_2){
     $errores['contraseña']= "Las contraseñas no coinciden";
 }else{
-    $clave= password_hash($clave_1 ,PASSWORD_BCRYPT,["cost"=>10]);
+    $clave_check= password_hash($clave_1 ,PASSWORD_BCRYPT,['cost'=>10]);
 }
+
+
 
 
 //GUARDAR DATOS
 if(count($errores)==0){
 
-    $sql = "INSERT INTO usuarios VALUES(NULL,'$tipoDoc','$documento','$nombres','$apellidos','$correo','$usuario','$clave','$rol');";
+    $sql = "INSERT INTO usuarios VALUES(NULL,'$tipoDoc','$documento','$nombres','$apellidos','$correo','$usuario','$clave_check','$rol');";
     $guardar = mysqli_query($db, $sql);
 
         
             if($guardar){
                 $_SESSION['registrado'] = "
-                    <div class='message-header'>
+                    <div class='message-header title is-5 m-0'>
                         <p>Registro exitoso!</p>
                     </div>
-                    <div class='message-body'>
-                        El <strong> Usuario </strong> ha sido registrado correctamente.
+                    <div class='message-body is-size-6'>
+                        El usuario <strong>$usuario </strong>  ha sido registrado correctamente.
                     </div>";
 
             }else{
                 $_SESSION['errorRegistro'] = "
-                <div class='message is-danger'>
+                <div class='message is-danger title is-5 m-0'>
                     <div class='message-header'>
                         <p>Registro exitoso!</p>
                     </div>
-                    <div class='message-body'>
+                    <div class='message-body is-size-6'>
                         El <strong>Usuario </strong> no se ha podido registrar comuniquese con soporte.
                     </div>
                     </div>";

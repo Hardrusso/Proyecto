@@ -2,7 +2,7 @@
     <div class="py-6 cont_user"><!--se abre un contenedor para agregar una imagen y unos titulos-->
         <img class="img_user" src="./images/user.png" alt="" >
         <h3 class="title is-4 has-text-centered mb-0 has-text-white"> <?= $_SESSION['usuario']['usuario_usuario']; ?> </h3>
-        <h4 class="is-size-6 has-text-centered has-text-white">Administrador</h4>
+        <h4 class="is-size-6 has-text-centered has-text-white"><?= $_SESSION['usuario']['rol_usuario']; ?></h4>
     </div>
 
 
@@ -42,7 +42,7 @@
     </div>
 </div>
 <div class="contenedor_derecha pl-5"><!--Abrimos un contenedor para la parte de la derecha-->
-<div class="panel_arriba mt-3 ">
-            <img src="./images/boton-left.svg" class="boton" id="ocultar" alt=""> 
-            <a href="./php/logout.php" ><img src="./images/log-out.png" class="boton" alt=""></a>
+<div class="panel_arriba is-align-items-center mt-3 mb-4">
+            <img src="./images/boton-left.png" id="ocultar" class="button is-small is-info" alt="">
+            <a href="./php/logout.php" class="button has-text-centered is-danger"><img src="./images/log-out.png" class="boton pr-2" alt="">Cerrar Sesion</a>
         </div>

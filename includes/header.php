@@ -10,6 +10,8 @@ require_once('./php/main.php'); ?>
     <link rel="stylesheet" href="./css/index.css"> <!-- Enlaza el archivo de estilo index.css -->
     <link rel="stylesheet" href="./css/bulma.min.css"> <!-- Enlaza el archivo de estilo bulma.min.css -->
     <link rel="stylesheet" href="./css/404.css" >
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/jquery_validate.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- Enlaza el archivo de estilo boxicons.min.css desde la fuente externa unpkg.com -->
     <title>Control de Ingreso</title> <!-- Establece el título de la página web -->
 </head>

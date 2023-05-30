@@ -15,7 +15,7 @@
         </div>
 
     <?php elseif (isset($_SESSION['errorRegistro'])):?>
-        <div class='message is-danger'>
+        <div class='message is-danger '>
         <?= $_SESSION['errorRegistro'] ; ?>
         </div>
     <?php endif; ?>
@@ -30,9 +30,9 @@
             <div class="control select">
                 <select name="tipodocumento">
                 <option value="">Seleccione una Opcion</option>
-                <option value="cedula">Cedula de Ciudadania</option>
-                <option value="tarjeta">Tarjeta de Identidad</option>
-                <option value="cedulaExt">Cedula Extranjera</option>
+                <option value="Cedula">Cedula de Ciudadania</option>
+                <option value="TarjetaDeIdentidad">Tarjeta de Identidad</option>
+                <option value="CedulaExtranjera">Cedula Extranjera</option>
                 </select>
             </div>
         </div>
@@ -81,33 +81,33 @@
         <div class="column">
                 <div class="control">
                     <label class="label">Contraseña</label>
-                    <input class="input" type="password" name="clave_1" pattern="[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ]{6,40}" placeholder="Ingresa tu contraseña">
+                    <input class="input" type="password" name="clave_1" pattern="[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ ]{6,80}" placeholder="Ingresa tu contraseña">
                 </div>
                 <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'contraseña'):"" ?>
             </div>
             <div class="column">
                 <div class="control">
                     <label class="label">Confirmar Contraseña</label>
-                    <input class="input" type="password" name="clave_2" pattern="[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ ]{6,40}" placeholder="Confirma tu contraseña">
+                    <input class="input" type="password" name="clave_2" pattern="[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ ]{6,80}" placeholder="Confirma tu contraseña">
                 </div>
             </div>
             <div class="column">
             <label for="rol" class="label">Rol</label>
-            <div class="control select ">
-                <select name="tiporol">
-                <option value="">seleccione una opcion</option>
-                <option value="administrador">Administrador</option>
-                <option value="celador">Celador</option>
-                </select>
+                <div class="control select ">
+                    <select name="tiporol">
+                    <option value="">seleccione una opcion</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Celador">Celador</option>
+                    </select>
+                </div>
             </div>
     </div>
-    </div>
         <div class="has-text-centered my-4">
-            <input class="button is-success title is-6" type="submit" value="Registrar">
+            <button class="button is-success px-5 title is-6" type="submit" value="Registrar"><img src="./images/save.png" alt="" class="mr-2">Registrar</button>
         </div>
 
 </form>    
 <?php BorrarErrores(); ?>
-<script src="js/jquery-3.2.1.js"></script>
-<script src="js/jquery_validate.js"></script>
-<script src="js/funciones.js"></script>
+
+
+<script src="./js/validar-form-registro.js"></script>
