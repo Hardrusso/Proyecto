@@ -12,7 +12,6 @@ CREATE TABLE usuarios(
     usuario_usuario varchar(20) not null,
     clave_usuario varchar(20) not null,
     rol_usuario varchar(15) not null,
-    foto_usuario varchar(10)not null,
     CONSTRAINT pk_usuario PRIMARY KEY (id_usuario)
 )ENGINE=InnoDB;
 

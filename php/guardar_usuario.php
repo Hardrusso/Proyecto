@@ -15,184 +15,85 @@ $rol = $_POST['tiporol'];
 
 $errores = array();
 
-if($tipoDoc == "Seleccione una Opcion"){
-    $errores['tipodoc'] = "Por favor seleccione una opcion!";
+if(is_numeric($documento)){
+    
+    $sql_doc = "SELECT * FROM usuarios WHERE documento_usuario = '$documento';";
+    $check_documento = mysqli_query($db, $sql_doc);
+
+    if($check_documento && mysqli_num_rows($check_documento)==1){
+
+        $errores['documento'] = "Este documento ya esta registrado";
+    }
+
 }
 
-$_SESSION['errores'] = $errores;
+if(verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$nombres)){
+    $errores['nombres']= "El nombre no cumple con los parametros establecidos";
+}
 
-// if(verificar_datos("[0-9]{3,20}",$documento)){
-//     echo
-// 	"<script>
-//         const alerta = document.querySelector('.alerta-registro');
-//         alerta.innerHTML =  `
-//         <div class='message is-danger'>
-//             <div class='message-header'>
-//                 <p>Error al Registrarse</p>
-//             </div>
-//             <div class='message-body'>
-//                 El <strong>DOCUMENTO</strong> no cumple con los paramteros exijidos!
-//             </div>
-//         </div>`;
-//     </script>";
-//     exit();
-// }
+if(verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$apellidos)){
+    $errores['apellidos']= "El apellido no cumple con los parametros establecidos";
+}
 
-// if(verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$nombres)){
-//     echo
-// 	"<script>
-//         const alerta = document.querySelector('.alerta-registro');
-//         alerta.innerHTML =  `
-//         <div class='message is-danger'>
-//             <div class='message-header'>
-//                 <p>Error al Registrarse</p>
-//             </div>
-//             <div class='message-body'>
-//                 El <strong>NOMBRE</strong> no cumple con los paramteros exijidos!
-//             </div>
-//         </div>`;
-//     </script>";
-//     exit();
-// }
-
-// if(verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$apellidos)){
-//     echo
-// 	"<script>
-//         const alerta = document.querySelector('.alerta-registro');
-//         alerta.innerHTML =  `
-//         <div class='message is-danger'>
-//             <div class='message-header'>
-//                 <p>Error al Registrarse</p>
-//             </div>
-//             <div class='message-body'>
-//                 Los <strong>APELLIDOS</strong> no cumple con los paramteros exijidos!
-//             </div>
-//         </div>`;
-//     </script>";
-//     exit();
-// }
-
-// if(verificar_datos("[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$usuario)){
-//     echo
-// 	"<script>
-//         const alerta = document.querySelector('.alerta-registro');
-//         alerta.innerHTML =  `
-//         <div class='message is-danger'>
-//             <div class='message-header'>
-//                 <p>Error al Registrarse</p>
-//             </div>
-//             <div class='message-body'>
-//                 El <strong>USUARIO</strong> no cumple con los paramteros exijidos!
-//             </div>
-//         </div>`;
-//     </script>";
-//     exit();
-// }
+if(verificar_datos("[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$usuario)){
+    $errores['usuario']= "El usuario no cumple con los parametros establecidos";
+}
 
 
-
-// if($rol == "Seleccione una Opcion"){
-//     $rol = "administrador";
-// }
-
-// if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
+if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
     
-//     $sql = "SELECT * FROM usuarios WHERE correo_usuario = '$correo'; ";
-//     $check_email = mysqli_query($db, $sql);
+    $sql_email = "SELECT * FROM usuarios WHERE correo_usuario = '$correo'; ";
+    $check_email = mysqli_query($db, $sql_email);
 
-//     if($check_email && mysqli_num_rows($check_email)==1){
-//         echo
-// 	"<script>
-//         const alerta = document.querySelector('.alerta-registro');
-//         alerta.innerHTML =  `
-//         <div class='message is-danger'>
-//             <div class='message-header'>
-//                 <p>Error al Registrarse</p>
-//             </div>
-//             <div class='message-body'>
-//                 El <strong>CORREO</strong> ingresado ya se encuentra registrado!
-//             </div>
-//         </div>`;
-//     </script>";
-//     exit();
-//     }
+    if($check_email && mysqli_num_rows($check_email)==1){
+        $errores['correo']= "El correo ya se encuentra registrado";
+    }
+    
+}else{
+    $errores['correo']= "El correo no es valido";
+}
 
 
-// }else{
-//     echo
-// 	"<script>
-//         const alerta = document.querySelector('.alerta-registro');
-//         alerta.innerHTML =  `
-//         <div class='message is-danger'>
-//             <div class='message-header'>
-//                 <p>Error al Registrarse</p>
-//             </div>
-//             <div class='message-body'>
-//                 El <strong>CORREO</strong> no es valido!
-//             </div>
-//         </div>`;
-//     </script>";
-//     exit();
-// }
+if($clave_1 =! $clave_2){
+    $errores['contraseña']= "Las contraseñas no coinciden";
+}else{
+    $clave= password_hash($clave_1 ,PASSWORD_BCRYPT,["cost"=>10]);
+}
 
 
+//GUARDAR DATOS
+if(count($errores)==0){
 
-// if($clave_1 =! $clave_2){
-//     echo
-// 	"<script>
-//         const alerta = document.querySelector('.alerta-registro');
-//         alerta.innerHTML =  `
-//         <div class='message is-danger'>
-//             <div class='message-header'>
-//                 <p>Error al Registrarse</p>
-//             </div>
-//             <div class='message-body'>
-//                 Las <strong>CONTRASEÑAS</strong> no coinciden!
-//             </div>
-//         </div>`;
-//     </script>";
-//     exit();
+    $sql = "INSERT INTO usuarios VALUES(NULL,'$tipoDoc','$documento','$nombres','$apellidos','$correo','$usuario','$clave','$rol');";
+    $guardar = mysqli_query($db, $sql);
 
-// }else{
-//     $clave= password_hash($clave_1 ,PASSWORD_BCRYPT,["cost"=>10]);
-// }
+        
+            if($guardar){
+                $_SESSION['registrado'] = "
+                    <div class='message-header'>
+                        <p>Registro exitoso!</p>
+                    </div>
+                    <div class='message-body'>
+                        El <strong> Usuario </strong> ha sido registrado correctamente.
+                    </div>";
 
-// //GUARDAR DATOS
+            }else{
+                $_SESSION['errorRegistro'] = "
+                <div class='message is-danger'>
+                    <div class='message-header'>
+                        <p>Registro exitoso!</p>
+                    </div>
+                    <div class='message-body'>
+                        El <strong>Usuario </strong> no se ha podido registrar comuniquese con soporte.
+                    </div>
+                    </div>";
+            }
 
-// $sql = "INSERT INTO usuarios VALUES(NULL,'$tipoDoc','$documento','$nombres','$apellidos','$correo','$usuario','$clave','$rol');";
-// $guardar = mysqli_query($db, $sql);
-
-// if($guardar){
-//     echo
-// 	"<script>
-//         const alerta = document.querySelector('.alerta-registro');
-//         alerta.innerHTML =  `
-//         <div class='message is-success'>
-//             <div class='message-header'>
-//                 <p>Registro Exitoso!</p>
-//             </div>
-//             <div class='message-body'>
-//                 El <strong>USUARIO</strong> ha sido creado correctamente!
-//             </div>
-//         </div>`;
-//     </script>";
-// }else{
-//     echo
-// 	"<script>
-//         const alerta = document.querySelector('.alerta-registro');
-//         alerta.innerHTML =  `
-//         <div class='message is-danger'>
-//             <div class='message-header'>
-//                 <p>Error al registrar!</p>
-//             </div>
-//             <div class='message-body'>
-//                 Ha ocurrido un <strong>ERROR</strong> comunicate con soporte!
-//             </div>
-//         </div>`;
-//     </script>";
-//     exit();
-// }
+}else{
+    $_SESSION['errores'] = $errores;
+}
 
 
-header('location:index.php?vista=perfil');
+header('location:../index.php?vista=usuario_nuevo');
+
 ?>

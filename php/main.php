@@ -132,7 +132,24 @@ function alertaLogin($indicador,$campo,$ingresado){
 
 function mostrarAlerta($errores,$parametro){
 	$alerta = "";
-	$alerta = "<p class='error'>". $errores[$parametro]."</p>";
+	if(isset($errores[$parametro]) && !empty($parametro)){
+		$alerta = "<p class='error'>". $errores[$parametro]."</p>";
+	}
 	return $alerta;
+}
+
+function BorrarErrores(){
+
+	if(isset($_SESSION['errores'])){
+		$_SESSION['errores']=null;
+	}
+
+	if(isset($_SESSION['registrado'])){
+		$_SESSION['registrado']=null;
+	}
+
+	if(isset($_SESSION['errorRegistrado'])){
+		$_SESSION['errorRegistrado']=null;
+	}
 }
 ?>

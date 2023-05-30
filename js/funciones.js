@@ -10,6 +10,9 @@ $(document).ready(function(){
 $("#registro-for").validate({
 
     rules:{
+        tipodocumento:{
+            required:true,
+        },
         documento:{
             required:true,
             number:true
@@ -35,10 +38,16 @@ $("#registro-for").validate({
         clave_2:{
             required:true,
             minlength:6
+        },
+        tiporol:{
+            required:true
         }
     },
 
     messages:{
+        tipodocumento:{
+            required: "Debes elegir una opcion"
+        },
         documento:{
             required: "Este campo es requerdio",
             number: "Solo acepta numeros" 
@@ -63,6 +72,9 @@ $("#registro-for").validate({
         },clave_2:{
             required:"La contraseña esta vacia",
             minlength:"La contraseña debe tener un minimo de 6 caracteres"
+        },
+        tiporol:{
+            required: "Debes elegir una opcion"
         }
     }
 
