@@ -30,7 +30,7 @@
             <div class="control select">
                 <select name="tipodocumento">
                 <option value="">Seleccione una Opcion</option>
-                <option value="Cedula">Cedula de Ciudadania</option>
+                <option value="Cedula de Ciudadania">Cedula de Ciudadania</option>
                 <option value="TarjetaDeIdentidad">Tarjeta de Identidad</option>
                 <option value="CedulaExtranjera">Cedula Extranjera</option>
                 </select>

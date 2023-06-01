@@ -137,5 +137,12 @@ function BorrarErrores(){
 	if(isset($_SESSION['usuarioNoExiste'])){
 		$_SESSION['usuarioNoExiste']=null;
 	}
+
+	if(isset($_SESSION['guardar'])){
+		$_SESSION['guardar']=null;
+	}
+	if(isset($_SESSION['error-clave'])){
+		$_SESSION['error-clave']=null;
+	}
 }
 ?>

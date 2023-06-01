@@ -11,7 +11,7 @@ $login = mysqli_query($db, $sql);
 if($login && mysqli_num_rows($login)==1){
 
     $datos = mysqli_fetch_assoc($login);
-    var_dump($datos);
+
     
     //confirmar contrasena
     $check_password = password_verify($clave , $datos["clave_usuario"]);
