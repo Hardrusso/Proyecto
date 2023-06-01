@@ -65,58 +65,6 @@ ocultarBtn.addEventListener("click", () => {
   containerDerecha.classList.toggle("container-full");
 });
 
-// modal para el formulario de actualizacion de la  pagina empresa
-
-  // Espera a que se cargue el contenido de la página
-document.addEventListener('DOMContentLoaded', () => {
-  // Define una función que abre un modal
-  function openModal($el) {
-  $el.classList.add('is-active');
-  }
-  
-  // Define una función que cierra un modal
-  function closeModal($el) {
-  $el.classList.remove('is-active');
-  }
-  
-  // Define una función que cierra todos los modals
-  function closeAllModals() {
-  // Obtiene todos los elementos con la clase 'modal' y los cierra
-  (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-  closeModal($modal);
-  });
-  }
-  
-  // Escucha el evento click en todos los elementos con la clase 'js-modal-trigger'
-  (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-  // Obtiene el modal al que se refiere el atributo 'data-target' del elemento clickeado
-  const modal = $trigger.dataset.target;
-  const $target = document.getElementById(modal);
-  // Abre el modal al que se refiere el elemento clickeado
-$trigger.addEventListener('click', () => {
-  openModal($target);
-});
-});
-
-// Escucha el evento click en los elementos que cierran los modals
-(document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
-// Obtiene el modal que contiene el botón clickeado
-const $target = $close.closest('.modal');
-// Cierra el modal que contiene el botón clickeado
-$close.addEventListener('click', () => {
-  closeModal($target);
-});
-});
-
-// Agrega un evento de teclado para cerrar todos los modals cuando se presiona la tecla 'Escape'
-document.addEventListener('keydown', (event) => {
-const e = event || window.event;
-if (e.keyCode === 27) { // La tecla 'Escape' cierra todos los modals
-  closeAllModals();
-}
-});
-});
-
 
 const alerta = document.querySelector(".alerta");
 
