@@ -3,7 +3,7 @@
 require_once('./php/conexion.php');
 
 $usuario = limpiar_cadena($_POST['login_usuario']);
-$clave = $_POST['login_clave'];
+$clave = limpiar_cadena($_POST['login_clave']);
 
 $sql = "SELECT * FROM usuarios WHERE usuario_usuario = '$usuario';";
 $login = mysqli_query($db, $sql);
@@ -52,7 +52,7 @@ if($login && mysqli_num_rows($login)==1){
     header('location:./index.php?vista=login');
 }
 
-$login=null;
+mysqli_close($db);
 
 
 ?>

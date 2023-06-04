@@ -42,7 +42,6 @@
                     <input class="input" type="password" placeholder="Contraseña" name="login_clave" >
                 </div>
             </div>
-            
             <button type="submit" class="btn-ingresar button is-success">Ingresar</button>
         </form>
         <?php BorrarErrores(); ?>

@@ -1,4 +1,4 @@
-        <article class="panel-heading"> 
+    <article class="panel-heading"> 
             <div class="is-flex">
                 <h3 class=" is-size-2" >BIENVENIDOS</h3>
             </div>
@@ -7,11 +7,17 @@
             </p>     
         </article>
 
+    <?php $datos_user = actualizarDatos($_SESSION['usuario'], $db);
+        if(!empty($datos_user)):
+        while($datos = mysqli_fetch_assoc($datos_user)):
+
+    ?>
+
         <div class="panel_iconos is-flex is-justify-content-space-around is-align-content-center"><!--Abrimos un contenedor para los botones de navegacion-->
             <a href="index.php?vista=perfil" class="iconos has-text-centered"> <!-- Inicia etiqueta 'a' para referenciar que es un link -->
                 <h2 class="title is-5">PERFIL</h2> <!-- Crea un encabezado de nivel 2 -->
                 <i class='bx bx-user bx-lg mb-3'></i> <!-- Crea un icono de usuario utilizando la biblioteca de iconos 'Boxicons' -->
-                <p class="is-size-5 pb-4"><?= $_SESSION['usuario']['nombre_usuario']; ?> </p> <!-- Creamos un párrafo-->
+                <p class="is-size-5 pb-4"><?= $datos['nombre_usuario'] ?> </p> <!-- Creamos un párrafo-->
             </a> <!-- Cierra la etiqueta 'a' -->
 
             <a href="nav/usuarios.html" class="iconos has-text-centered">
@@ -36,3 +42,6 @@
                 <p class="is-size-5">Conocenos</p>
             </a>
         </div><!--cerramos contenedor para los botones de navegacion-->
+
+        <?php endwhile;
+endif; ?>

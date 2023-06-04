@@ -144,5 +144,12 @@ function BorrarErrores(){
 	if(isset($_SESSION['error-clave'])){
 		$_SESSION['error-clave']=null;
 	}
+	if(isset($_SESSION['errorClave'])){
+		$_SESSION['errorClave']=null;
+	}
 }
+
+
+
+
 ?>

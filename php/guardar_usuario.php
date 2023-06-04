@@ -88,7 +88,7 @@ if(count($errores)==0){
                 $_SESSION['errorRegistro'] = "
                 <div class='message is-danger title is-5 m-0'>
                     <div class='message-header'>
-                        <p>Registro exitoso!</p>
+                        <p>Error de Registro!</p>
                     </div>
                     <div class='message-body is-size-6'>
                         El <strong>Usuario </strong> no se ha podido registrar comuniquese con soporte.
@@ -100,7 +100,7 @@ if(count($errores)==0){
     $_SESSION['errores'] = $errores;
 }
 
-
+mysqli_close($db);
 header('location:../index.php?vista=usuario_nuevo');
 
 ?>

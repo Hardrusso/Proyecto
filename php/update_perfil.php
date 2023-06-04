@@ -8,21 +8,26 @@ $documento = limpiar_cadena($_POST['documento']);
 $nombres = limpiar_cadena($_POST['nombres']);
 $apellidos = limpiar_cadena($_POST['apellidos']);
 $correo = limpiar_cadena($_POST['email']);
-$clave = limpiar_cadena($_POST['clave']);
+$clave = limpiar_cadena($_POST['clave_user']);
 $rol = $_POST['tiporol'];
-
-if(isset($_POST['clave_new'])){
-    $clave_new = limpiar_cadena($_POST['clave_new']);
-    $pass = password_hash($clave_new,PASSWORD_BCRYPT,["cost"=>10]);
-}
-
-// var_dump($pass);
-// die();
 
 $errores = array();
 $user = $_SESSION['usuario']['usuario_usuario'];
 
-if(is_numeric($documento)){
+if(isset($_POST['clave_new'])){
+    $clave_new = limpiar_cadena($_POST['clave_new']);
+    if(!empty($clave_new)){
+        $pass = password_hash($clave_new,PASSWORD_BCRYPT,["cost"=>10]);
+    }else{
+        $errores['pass'] = "La contraseña nueva no puede quedar vacia!";
+    }
+    
+}
+
+
+
+
+if(empty($documento) && is_numeric($documento)){
 
     $sql_doc = "SELECT * FROM usuarios WHERE documento_usuario=$documento AND usuario_usuario != '$user';";
     $check_documento = mysqli_query($db, $sql_doc);
@@ -35,15 +40,15 @@ if(is_numeric($documento)){
 
 
 
-if(verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$nombres)){
+if(empty($nombres) && verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$nombres)){
     $errores['nombres']= "El nombre no cumple con los parametros establecidos";
-}{
+}else{
     $nombres = ucwords(strtolower($nombres));
 }
 
-if(verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$apellidos)){
+if(empty($apellidos) && verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$apellidos)){
     $errores['apellidos']= "El apellido no cumple con los parametros establecidos";
-}{
+}else{
     $apellidos = ucwords(strtolower($apellidos));
 }
 
@@ -71,6 +76,7 @@ if(count($errores) == 0){
 
     $clave_user = $_SESSION['usuario']['clave_usuario'];
     $id = $_SESSION['usuario']['id_usuario'];
+
     
     $clave_iguales = password_verify($clave, $clave_user);
 
@@ -93,7 +99,7 @@ if(count($errores) == 0){
             if($guardar_usuario_pass){
                 $_SESSION['guardar'] = "
                 <div class='message-header title is-5 m-0'>
-                    <p>Registro exitoso!</p>
+                    <p>Actualizacion Exitosa!</p>
                 </div>
                 <div class='message-body is-size-6'>
                     Tus datos se han actualizado <strong>CORRECTAMENTE</strong>.
@@ -117,7 +123,7 @@ if(count($errores) == 0){
             if($guardar_usuario){
                 $_SESSION['guardar'] = "
                 <div class='message-header title is-5 m-0'>
-                    <p>Registro exitoso!</p>
+                    <p>Actualizacion Exitosa!</p>
                 </div>
                 <div class='message-body is-size-6'>
                     Tus datos se han actualizado <strong>CORRECTAMENTE</strong>.
@@ -130,15 +136,16 @@ if(count($errores) == 0){
 
         $_SESSION['error-clave'] = "
             <div class='message-header title is-5 m-0'>
-                <p>Registro exitoso!</p>
+                <p>Error al actualizar!</p>
             </div>
             <div class='message-body is-size-6'>
                 La <strong>CONTRASEÑA</strong> es incorrecta.
             </div>";
     }
 
-    $_SESSION['errores']= $errores;
+    
 }
-
+$_SESSION['errores']= $errores;
+mysqli_close($db);
 header('location:../index.php?vista=perfil');
 ?>

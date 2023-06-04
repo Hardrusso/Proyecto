@@ -1,7 +1,8 @@
 $(document).ready(function(){
 
+    
     $("#perfil_up_form").validate({
-
+        
         rules:{
             tipodocumento:{
                 required:true,
@@ -11,10 +12,10 @@ $(document).ready(function(){
                 number:true
             },
             nombres:{
-                required: true,
+                required: true
             },
             apellidos:{
-                required: true,
+                required: true
             },
             email:{
                 required: true,
@@ -24,8 +25,12 @@ $(document).ready(function(){
                 required: true,
                 minlength:6
             },
-            clave:{
-                required:true,
+            clave_user:{
+                required: true,
+                minlength:6
+            },
+            clave_new:{
+                required: true,
                 minlength:6
             },
             tiporol:{
@@ -55,7 +60,11 @@ $(document).ready(function(){
                 required:"El usuario debe ir definido",
                 minlength:"El usuario debe tener un minimo de 6 caracteres"
             },
-            clave:{
+            clave_user:{
+                required:"La contraseña esta vacia",
+                minlength:"La contraseña debe tener un minimo de 6 caracteres"
+            },
+            clave_new:{
                 required:"La contraseña esta vacia",
                 minlength:"La contraseña debe tener un minimo de 6 caracteres"
             },
@@ -64,12 +73,13 @@ $(document).ready(function(){
             }
         }
     
+        
     });
     
-});
+
+
 
 //funcion para validar el checkbox del cambio de contraseña queremos que se active y desactive un input
-
 $("#check_up_pass").change(function(){
 
     if($(this).is(":checked")){
@@ -81,5 +91,23 @@ $("#check_up_pass").change(function(){
         document.getElementById("clave_cambiada").required = false;
         document.getElementById("clave_cambiada").value = "";
     }
-})
+});
 
+
+
+
+//funcion para validar el checkbox de el boton eliminar del perfil
+$('#check_confirm').change(function(){
+
+    if($(this).is(':checked')){
+        document.getElementById('confirm_pass').required = true;
+        document.getElementById('confirm_pass').disabled = false;
+        document.getElementById('confirm_pass').focus();
+    }else{
+        document.getElementById('confirm_pass').required = false;
+        document.getElementById('confirm_pass').disabled = true;
+        document.getElementById('confirm_pass').value = "";
+    }
+});
+
+});

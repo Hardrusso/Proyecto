@@ -1,4 +1,3 @@
-<?php require_once('./php/conexion.php'); ?>
 <?php require_once('./includes/header.php');?>
 
 <section class="contenedor is-flex"><!--Abrimos un contenedor para toda la pagina mostrada y le damos propiedad flex-->
@@ -15,6 +14,7 @@ if(is_file('./vistas/'.$_GET['vista'].'.php') &&  $_GET['vista'] != 'login'){
     include('./vistas/nav_left.php');
     include('./vistas/'.$_GET['vista'].'.php');
     include('./includes/script.php');
+
 }else{
 
     if($_GET['vista']=='login'){
