@@ -28,7 +28,8 @@
 
     $tabla.='
         <div class="table-container">
-        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth table_id">
             <thead>
                 <tr class="has-text-centered">
                     <th class="has-text-centered">#</th>
@@ -109,3 +110,4 @@
     if($total>=1 && $pagina <= $Npaginas){
         echo paginador_tablas($pagina,$Npaginas,$url,2); //funcion ya definida en el archivo main.php
     }
+    ?>

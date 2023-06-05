@@ -6,13 +6,37 @@
 
     if(isset($busqueda) && $busqueda != ""){
 
-        $consulta_datos = "SELECT * FROM aprendices WHERE (nombre_titulada LIKE %$busqueda% OR ficha_titulada LIKE %$busqueda%) ORDER BY nombre_titulada ASC LIMIT $inicio,$registros ;";
+        $consulta_datos = "SELECT u.nombre_usuario,
+        CONCAT(a.nombre_aprendiz,'',a.apellido_aprendiz)AS'Nombre Aprendiz',
+        a.id_aprendiz,
+        a.documento,
+        a.email_aprendiz,
+        a.celular,
+        ti.nombre_titulada,
+        ti.ficha_titulada,
+        a.fecha
+        FROM aprendices a 
+        INNER JOIN usuarios u ON u.id_usuario = a.id_usuario
+        INNER JOIN tituladas ti ON ti.id_titulada = a.id_titulada
+        WHERE (a.nombre_aprendiz LIKE '%$busqueda%' OR a.apellido_aprendiz LIKE '%$busqueda%' OR a.documento LIKE '%$busqueda%') ORDER BY a.nombre_aprendiz ASC LIMIT $inicio,$registros ";
 
-        $consulta_total = "SELECT COUNT(id_titulada) FROM tituladas WHERE (nombre_titulada LIKE %$busqueda% OR ficha_titulada LIKE %$busqueda% OR %$busqueda% )); ";
+        $consulta_total = "SELECT COUNT(id_aprendiz) FROM aprendices WHERE (nombre_aprendiz LIKE '%$busqueda%' OR apellido_aprendiz LIKE '%$busqueda%' OR documento LIKE '%$busqueda%'); ";
     }else{
-        $consulta_datos = "SELECT * FROM tituladas  ORDER BY nombre_titulada ASC LIMIT $inicio,$registros;";
+        $consulta_datos = "SELECT u.nombre_usuario,
+        CONCAT(a.nombre_aprendiz,'',a.apellido_aprendiz)AS'Nombre Aprendiz',
+        a.id_aprendiz,
+        a.documento,
+        a.email_aprendiz,
+        a.celular,
+        ti.nombre_titulada,
+        ti.ficha_titulada,
+        a.fecha
+        FROM aprendices a 
+        INNER JOIN usuarios u ON u.id_usuario = a.id_usuario
+        INNER JOIN tituladas ti ON ti.id_titulada = a.id_titulada  
+        ORDER BY nombre_aprendiz ASC LIMIT $inicio,$registros;";
 
-        $consulta_total = "SELECT COUNT(id_titulada) FROM tituladas ;";
+        $consulta_total = "SELECT COUNT(id_aprendiz) FROM aprendices ;";
     }
 
     $datos = mysqli_query($db, $consulta_datos);
@@ -32,10 +56,15 @@
             <thead>
                 <tr class="has-text-centered">
                     <th class="has-text-centered">#</th>
-                    <th class="has-text-centered">Nombre Titulada</th>
-                    <th class="has-text-centered">Ficha</th>
-                    <th class="has-text-centered">Jornada</th>
-                    <th class="has-text-centered" colspan="2">Opciones</th>
+                    <th class="has-text-centered">Nombre Usuario</th>
+                    <th class="has-text-centered">Nombre aprendiz</th>
+                    <th class="has-text-centered">Documento</th>
+                    <th class="has-text-centered">Correo</th>
+                    <th class="has-text-centered"># Contacto</th>
+                    <th class="has-text-centered">Titulada</th>
+                    <th class="has-text-centered">Ficha titulada</th>
+                    <th class="has-text-centered">Fecha Registro</th>
+                    <th class="has-text-centered" colspan="3">Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,14 +79,22 @@
             $tabla.='
                 <tr class="has-text-centered" >
                 <td>'.$contador.'</td>
+                <td>'.$rows['nombre_usuario'].'</td>
+                <td>'.$rows['Nombre Aprendiz'].'</td>
+                <td>'.$rows['documento'].'</td>
+                <td>'.$rows['email_aprendiz'].'</td>
+                <td>'.$rows['celular'].'</td>
                 <td>'.$rows['nombre_titulada'].'</td>
                 <td>'.$rows['ficha_titulada'].'</td>
-                <td>'.$rows['jornada'].'</td>
+                <td>'.$rows['fecha'].'</td>
                 <td>
-                    <a href="index.php?vista=user_update&user_id_up='.$rows['id_titulada'].'" class="button is-success is-rounded is-small">Actualizar</a>
+                    <a href="'.$url.$pagina.'&user_art_del='.$rows['id_aprendiz'].'" class="button is-link is-rounded is-small">Articulos</a>
                 </td>
                 <td>
-                    <a href="'.$url.$pagina.'&user_id_del='.$rows['id_titulada'].'" class="button is-danger is-rounded is-small">Eliminar</a>
+                    <a href="index.php?vista=user_update&user_id_up='.$rows['id_aprendiz'].'" class="button is-success is-rounded is-small">Actualizar</a>
+                </td>
+                <td>
+                    <a href="'.$url.$pagina.'&user_id_del='.$rows['id_aprendiz'].'" class="button is-danger is-rounded is-small">Eliminar</a>
                 </td>
                 </tr>
             ';

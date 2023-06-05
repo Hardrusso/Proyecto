@@ -6,6 +6,11 @@
                 Estimado usuario, este es un sistema de inventario para que lleves el control de tus productos!
             </p>     
         </article>
+        <?php
+            $totalAprendiz = obtenerRegistros($db,'aprendices','id_aprendiz',null);
+            $totalUsuarios = obtenerRegistros($db,'usuarios','id_usuario',$_SESSION['usuario']['id_usuario']);
+            $totaltitulada = obtenerRegistros($db,'tituladas','id_titulada',null);
+        ?>
 
     <?php $datos_user = actualizarDatos($_SESSION['usuario'], $db);
         if(!empty($datos_user)):
@@ -22,22 +27,22 @@
             <a href="nav/usuarios.html" class="iconos has-text-centered">
                 <h2 class="title is-5">USUARIOS</h2>
                 <i class='bx bxs-user-account bx-lg mb-3'></i>
-                <p class="is-size-5 pb-4">10 Registrados</p>
+                <p class="is-size-5 pb-4"><?= $totalUsuarios; ?> Registrados</p>
                 
-            </a>
-            <a href="./nav/productos.html" class="iconos has-text-centered">
-                <h2 class="titulo_productos title is-5">ARTICULOS</h2>
-                <p class="is-size-5">4 Registrados</p>
             </a>
             <a href="nav/devoluciones.html" class="iconos has-text-centered">
                 <h2 class="titulo_productos title is-5">APRENDICES</h2>
-                <p class="is-size-5">7 Devoluciones</p>
+                <p class="is-size-5"><?= $totalAprendiz; ?> Registrados</p>
+            </a>
+            <a href="./nav/productos.html" class="iconos has-text-centered">
+                <h2 class="titulo_productos title is-5">TITULADAS</h2>
+                <p class="is-size-5"><?= $totaltitulada; ?> Registrados</p>
             </a>
             <a href="nav/empresa.html" class="iconos has-text-centered">
-                <h2 class="titulo_productos title is-5">OTROS</h2>
+                <h2 class="titulo_productos title is-5">ARTICULOS</h2>
                 <p class="is-size-5">Conocenos</p>
             </a>
         </div><!--cerramos contenedor para los botones de navegacion-->
 
         <?php endwhile;
-endif; ?>
+            endif; ?>

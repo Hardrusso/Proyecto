@@ -54,6 +54,9 @@
     </ul>
     </div>
 
+
+
+
     <?php 
     if(!isset($_GET['page'])){
         $pagina = 1;
@@ -123,3 +126,4 @@
 
 <?php BorrarErrores(); ?>
 <script src="./js/modal.js"></script>
+

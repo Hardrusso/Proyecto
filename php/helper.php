@@ -15,5 +15,23 @@ function actualizarDatos($sesion,$conexion){
 
 }
 
+function obtenerRegistros($conexion,$tabla,$campo,$id){
+
+    $sql = "SELECT COUNT($campo) FROM $tabla ";
+        
+        if($tabla == 'usuarios'){
+            $sql .= "WHERE $campo != $id ";
+        }
+
+        $totalResultado = mysqli_query($conexion, $sql);
+
+        $total = mysqli_fetch_array($totalResultado);
+        $total = (int) $total[0];
+
+        return $total;
+}
+
+
+
 
 ?>

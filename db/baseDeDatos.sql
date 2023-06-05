@@ -55,10 +55,18 @@ CREATE TABLE articulos(
 
 
 
-SELECT u.nombre_usuario, a.*,
+SELECT u.nombre_usuario,
+    CONCAT(a.nombre_aprendiz,'',a.apellido_aprendiz)AS'Nombre Aprendiz',
+    a.documento,
+    a.email_aprendiz,
+    a.celular,
     ti.nombre_titulada,
-    ti.ficha_titulada FROM aprendices a 
-    INNER JOIN usuarios u ON u.id_usuario = a.id_aprendiz
-    INNER JOIN tituladas ti ON ti.id_titulada = a.id_aprendiz
+    ti.ficha_titulada,
+    a.fecha
+    FROM aprendices a 
+    INNER JOIN usuarios u ON u.id_usuario = a.id_usuario
+    INNER JOIN tituladas ti ON ti.id_titulada = a.id_titulada
     WHERE a.id_aprendiz = 1;
     
+
+
