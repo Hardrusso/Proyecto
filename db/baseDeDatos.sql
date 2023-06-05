@@ -53,3 +53,12 @@ CREATE TABLE articulos(
     CONSTRAINT fk_articulo_aprendiz FOREIGN KEY (id_aprendiz) REFERENCES aprendices(id_aprendiz)
 )Engine=InnoDB;
 
+
+
+SELECT u.nombre_usuario, a.*,
+    ti.nombre_titulada,
+    ti.ficha_titulada FROM aprendices a 
+    INNER JOIN usuarios u ON u.id_usuario = a.id_aprendiz
+    INNER JOIN tituladas ti ON ti.id_titulada = a.id_aprendiz
+    WHERE a.id_aprendiz = 1;
+    

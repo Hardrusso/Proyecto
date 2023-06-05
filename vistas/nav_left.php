@@ -9,36 +9,35 @@
 
     <div class=""><!--Abrimos un contenedor para los botones de navegacion-->
         <nav class="nav">
-            <a class="nav_a" href="index.php?vista=home"><i class='bx bx-home-alt bx-sm pr-2'></i>Home</a>
-            <a class="nav_a" href="index.php?vista=perfil"><i class='bx bx-user bx-sm pr-2'></i>Perfil</a>
+            <a class="nav_a" href="index.php?vista=home">Home</a>
+            <a class="nav_a" href="index.php?vista=perfil">Perfil</a>
             
                 <div class="drop1"><!--Abrimos un contenedor para el primer dropdown -->
-                <p class="drop_title"><i class='bx bxs-user-account bx-sm pr-2'></i>Usuarios
+                <p class="drop_title">Usuarios
                     <span>
-                    <i class='bx bx-chevron-down bx-sm drop_arrow'></i>
                     </span>
                 </p>
                 <div class="drop_list">
-                    <a href="index.php?vista=usuarios_lista"><i class='bx bxs-spreadsheet bx-sm pr-2'></i>lista Usuarios</a>
-                    <a href="index.php?vista=usuario_nuevo"><i class='bx bx-plus bx-sm pr-2'></i>Nuevo Usuario</a>
+                    <a href="index.php?vista=usuarios_lista">lista Usuarios</a>
+                    <a href="index.php?vista=usuario_nuevo"></i>Nuevo Usuario</a>
                 </div>
                 </div>
 
                 <div class="drop1"><!--Abrimos un contenedor para el segundo dropdown -->
-                <p class="drop_title_product"><i class='bx bx-package bx-sm pr-2'></i>Articulos
+                <p class="drop_title_product">Articulos
                     <span>
-                    <i class='bx bx-chevron-down bx-sm drop_arrow2'></i>
                     </span>
                 </p>
                 <ul class="drop_list_product">
-                    <a href="./nav/productos.html"><i class='bx bxs-spreadsheet bx-sm pr-2'></i>Lista Articulos</a>
-                    <a href="./nav/agregar_productos.html"><i class='bx bx-plus bx-sm pr-2'></i>Nuevo articulo</a>
+                    <a href="./nav/productos.html">Lista Articulos</a>
+                    <a href="./nav/agregar_productos.html">Nuevo articulo</a>
                 </ul>
                 </div>
                 </div>
             
-            <a class="nav_a" href="nav/devoluciones.html"><i class='bx bx-repost bx-sm pr-2'></i></i>Aprendices</a>
-            <a class="nav_a" href="nav/empresa.html"><i class='bx bx-building-house bx-sm pr-2'></i>Otros</a>
+            <a class="nav_a" href="index.php?vista=aprendices_lista">Aprendices</a>
+            <a class="nav_a" href="index.php?vista=tituladas_lista">Tituladas</a>
+            <a class="nav_a" href="nav/empresa.html">Otros</a>
         </nav>
     </div>
 </div>

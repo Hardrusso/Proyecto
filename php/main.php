@@ -147,6 +147,15 @@ function BorrarErrores(){
 	if(isset($_SESSION['errorClave'])){
 		$_SESSION['errorClave']=null;
 	}
+	if(isset($_SESSION['fichaExiste'])){
+		$_SESSION['fichaExiste']=null;
+	}
+	if(isset($_SESSION['titulada-error'])){
+		$_SESSION['titulada-error']=null;
+	}
+	if(isset($_SESSION['titulada'])){
+		$_SESSION['titulada']=null;
+	}
 }
 
 

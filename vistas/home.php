@@ -16,7 +16,6 @@
         <div class="panel_iconos is-flex is-justify-content-space-around is-align-content-center"><!--Abrimos un contenedor para los botones de navegacion-->
             <a href="index.php?vista=perfil" class="iconos has-text-centered"> <!-- Inicia etiqueta 'a' para referenciar que es un link -->
                 <h2 class="title is-5">PERFIL</h2> <!-- Crea un encabezado de nivel 2 -->
-                <i class='bx bx-user bx-lg mb-3'></i> <!-- Crea un icono de usuario utilizando la biblioteca de iconos 'Boxicons' -->
                 <p class="is-size-5 pb-4"><?= $datos['nombre_usuario'] ?> </p> <!-- Creamos un párrafo-->
             </a> <!-- Cierra la etiqueta 'a' -->
 
@@ -28,17 +27,14 @@
             </a>
             <a href="./nav/productos.html" class="iconos has-text-centered">
                 <h2 class="titulo_productos title is-5">ARTICULOS</h2>
-                <i class='bx bx-package bx-lg mb-3'></i>
                 <p class="is-size-5">4 Registrados</p>
             </a>
             <a href="nav/devoluciones.html" class="iconos has-text-centered">
                 <h2 class="titulo_productos title is-5">APRENDICES</h2>
-                <i class='bx bx-repost bx-lg mb-3'></i>
                 <p class="is-size-5">7 Devoluciones</p>
             </a>
             <a href="nav/empresa.html" class="iconos has-text-centered">
                 <h2 class="titulo_productos title is-5">OTROS</h2>
-                <i class='bx bx-building-house bx-lg mb-3'></i>
                 <p class="is-size-5">Conocenos</p>
             </a>
         </div><!--cerramos contenedor para los botones de navegacion-->

@@ -10,25 +10,27 @@
         </p>     
 
     </article>
-    <br>
-    <div class="tabs is-centered">
-        <ul>
-            <li >
+
+    <div class="tabs is-centered is-boxed">
+    <ul>
+        <li >
             <a href="index.php?vista=usuario_nuevo">
-                <span >AGREGAR</span>
+                <span>AGREGAR</span>
             </a>
-            </li>
-            <li class="is-active">
-            <a href="index.php?vista=usuarios_lista">
-                <span>LISTA DE USUARIOS</span>
+        </li>
+
+        <li class="is-active" href="index.php?vista=usuarios_lista">
+            <a>
+                <span>LISTA USUARIOS</span>
             </a>
-            </li>
-            <li>
+        </li>
+
+        <li >
             <a href="index.php?vista=usuario_search">
-                <span>BUSCAR USUARIOS</span>
+                <span>BUSCAR</span>
             </a>
-            </li>
-        </ul>
+        </li>
+    </ul>
     </div>
 
 <?php 

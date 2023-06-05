@@ -40,13 +40,13 @@ if(empty($documento) && is_numeric($documento)){
 
 
 
-if(empty($nombres) && verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$nombres)){
+if(empty($nombres) || verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$nombres)){
     $errores['nombres']= "El nombre no cumple con los parametros establecidos";
 }else{
     $nombres = ucwords(strtolower($nombres));
 }
 
-if(empty($apellidos) && verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$apellidos)){
+if(empty($apellidos) || verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$apellidos)){
     $errores['apellidos']= "El apellido no cumple con los parametros establecidos";
 }else{
     $apellidos = ucwords(strtolower($apellidos));

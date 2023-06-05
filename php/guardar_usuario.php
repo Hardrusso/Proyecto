@@ -29,13 +29,13 @@ if(is_numeric($documento)){
 
 if(verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$nombres)){
     $errores['nombres']= "El nombre no cumple con los parametros establecidos";
-}{
+}else{
     $nombres = ucwords(strtolower($nombres));
 }
 
 if(verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$apellidos)){
     $errores['apellidos']= "El apellido no cumple con los parametros establecidos";
-}{
+}else{
     $apellidos = ucwords(strtolower($apellidos));
 }
 

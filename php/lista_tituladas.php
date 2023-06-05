@@ -2,17 +2,17 @@
 
     $inicio = ($pagina > 0) ? (($pagina * $registros)-$registros) : 0; // esta funcion es para saber donde iniciar la tabla
     $tabla = "";       
-    $id_user = $_SESSION['usuario']['id_usuario'];                                                //variable para generar todo el listado de usuarios
+
 
     if(isset($busqueda) && $busqueda != ""){
 
-        $consulta_datos = "SELECT * FROM usuarios WHERE ((id_usuario != $id_user) AND (nombre_usuario LIKE %$busqueda% OR apellido_usuario LIKE %$busqueda% OR documento_usuario LIKE %$busqueda%)) ORDER BY nombre_usuario ASC LIMIT $inicio,$registros ;";
+        $consulta_datos = "SELECT * FROM tituladas WHERE (nombre_titulada LIKE %$busqueda% OR ficha_titulada LIKE %$busqueda%) ORDER BY nombre_titulada ASC LIMIT $inicio,$registros ;";
 
-        $consulta_total = "SELECT COUNT(id_usuario) FROM usuarios WHERE ((id_usuario != $id_user) AND (nombre_usuario LIKE %$busqueda% OR apellido_nombre LIKE %$busqueda% OR %$busqueda% )); ";
+        $consulta_total = "SELECT COUNT(id_titulada) FROM tituladas WHERE (nombre_titulada LIKE %$busqueda% OR ficha_titulada LIKE %$busqueda% OR %$busqueda% )); ";
     }else{
-        $consulta_datos = "SELECT * FROM usuarios WHERE id_usuario != $id_user ORDER BY nombre_usuario ASC LIMIT $inicio,$registros;";
+        $consulta_datos = "SELECT * FROM tituladas  ORDER BY nombre_titulada ASC LIMIT $inicio,$registros;";
 
-        $consulta_total = "SELECT COUNT(id_usuario) FROM usuarios WHERE id_usuario != $id_user;";
+        $consulta_total = "SELECT COUNT(id_titulada) FROM tituladas ;";
     }
 
     $datos = mysqli_query($db, $consulta_datos);
@@ -21,7 +21,8 @@
 
     $total = mysqli_query($db, $consulta_total);
     $total = mysqli_fetch_array($total);
-    $total = (int) $total[0];
+    $total = (int)$total[0];
+
 
     $Npaginas = ceil($total/$registros);
 
@@ -31,13 +32,9 @@
             <thead>
                 <tr class="has-text-centered">
                     <th class="has-text-centered">#</th>
-                    <th class="has-text-centered">Tipo de Documento</th>
-                    <th class="has-text-centered"># Documento</th>
-                    <th class="has-text-centered">Nombres</th>
-                    <th class="has-text-centered">Apellidos</th>
-                    <th class="has-text-centered">Correo</th>
-                    <th class="has-text-centered">Usuario</th>
-                    <th class="has-text-centered">Rol</th>
+                    <th class="has-text-centered">Nombre Titulada</th>
+                    <th class="has-text-centered">Ficha</th>
+                    <th class="has-text-centered">Jornada</th>
                     <th class="has-text-centered" colspan="2">Opciones</th>
                 </tr>
             </thead>
@@ -53,18 +50,14 @@
             $tabla.='
                 <tr class="has-text-centered" >
                 <td>'.$contador.'</td>
-                <td>'.$rows['tipoDoc_usuario'].'</td>
-                <td>'.$rows['documento_usuario'].'</td>
-                <td>'.$rows['nombre_usuario'].'</td>
-                <td>'.$rows['apellido_usuario'].'</td>
-                <td>'.$rows['correo_usuario'].'</td>
-                <td>'.$rows['usuario_usuario'].'</td>
-                <td>'.$rows['rol_usuario'].'</td>
+                <td>'.$rows['nombre_titulada'].'</td>
+                <td>'.$rows['ficha_titulada'].'</td>
+                <td>'.$rows['jornada'].'</td>
                 <td>
-                    <a href="index.php?vista=user_update&user_id_up='.$rows['id_usuario'].'" class="button is-success is-rounded is-small">Actualizar</a>
+                    <a href="index.php?vista=user_update&user_id_up='.$rows['id_titulada'].'" class="button is-success is-rounded is-small">Actualizar</a>
                 </td>
                 <td>
-                    <a href="'.$url.$pagina.'&user_id_del='.$rows['id_usuario'].'" class="button is-danger is-rounded is-small">Eliminar</a>
+                    <a href="'.$url.$pagina.'&user_id_del='.$rows['id_titulada'].'" class="button is-danger is-rounded is-small">Eliminar</a>
                 </td>
                 </tr>
             ';

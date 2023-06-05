@@ -6,25 +6,28 @@
             Completa el formulario para registrar el nuevo usuario
         </p>     
 </article>
-<div class="tabs is-centered">
-        <ul>
-            <li class="is-active">
+
+<div class="tabs is-centered is-boxed">
+    <ul>
+        <li class="is-active">
             <a href="index.php?vista=usuario_nuevo">
-                <span >AGREGAR</span>
+                <span>AGREGAR</span>
             </a>
-            </li>
-            <li>
+        </li>
+
+        <li >
             <a href="index.php?vista=usuarios_lista">
-                <span>LISTA DE USUARIOS</span>
+                <span>LISTA USUARIOS</span>
             </a>
-            </li>
-            <li>
+        </li>
+
+        <li >
             <a href="index.php?vista=usuario_search">
-                <span>BUSCAR USUARIOS</span>
+                <span>BUSCAR</span>
             </a>
-            </li>
-        </ul>
-    </div>
+        </li>
+    </ul>
+</div>
 
     <?php if(isset($_SESSION['registrado'] )): ?>
 

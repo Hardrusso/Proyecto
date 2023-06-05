@@ -247,7 +247,7 @@ if(!empty($datos_user)):
 ?>
 <?php BorrarErrores(); ?>
 <script src="./js/validar_update_perfil.js"></script>
-<script src="./js/modal_perfil.js"></script>
+<script src="./js/modal.js"></script>
 
 
 
