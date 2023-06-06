@@ -14,7 +14,7 @@
     <div class="tabs is-centered is-boxed">
     <ul>
         <li >
-            <a class="js-modal-trigger" data-target="modal_agg_titulada">
+            <a class="" href="index.php?vista=aprendiz_nuevo">
                 <span>AGREGAR</span>
             </a>
         </li>

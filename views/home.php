@@ -10,6 +10,7 @@
             $totalAprendiz = obtenerRegistros($db,'aprendices','id_aprendiz',null);
             $totalUsuarios = obtenerRegistros($db,'usuarios','id_usuario',$_SESSION['usuario']['id_usuario']);
             $totaltitulada = obtenerRegistros($db,'tituladas','id_titulada',null);
+            $totalarticulo = obtenerRegistros($db,'articulos','id_articulo',null);
         ?>
 
     <?php $datos_user = actualizarDatos($_SESSION['usuario'], $db);
@@ -40,7 +41,7 @@
             </a>
             <a href="nav/empresa.html" class="iconos has-text-centered">
                 <h2 class="titulo_productos title is-5">ARTICULOS</h2>
-                <p class="is-size-5">Conocenos</p>
+                <p class="is-size-5"><?= $totalarticulo; ?> Registrados</p>
             </a>
         </div><!--cerramos contenedor para los botones de navegacion-->
 

@@ -40,7 +40,7 @@ $(document).ready(function(){
     
         messages:{
             tipodocumento:{
-                required: "Debes elegir una opcion"
+                required: "Define el tipo de Documento"
             },
             documento:{
                 required: "Este campo es requerdio",
@@ -72,8 +72,6 @@ $(document).ready(function(){
                 required: "Debes elegir una opcion"
             }
         }
-    
-        
     });
     
 

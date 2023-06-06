@@ -31,6 +31,17 @@ function obtenerRegistros($conexion,$tabla,$campo,$id){
         return $total;
 }
 
+function obtenerDatos($conexion,$tabla){
+
+    $sql = "SELECT * FROM $tabla";
+    $obtener = mysqli_query($conexion, $sql);
+
+    $obtener = mysqli_fetch_all($obtener, MYSQLI_ASSOC);
+
+    $resultado = $obtener;
+    return $resultado;
+}
+
 
 
 

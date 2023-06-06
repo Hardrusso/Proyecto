@@ -6,15 +6,14 @@
 
     if(isset($busqueda) && $busqueda != ""){
 
-        $consulta_datos = "SELECT u.nombre_usuario,
-        CONCAT(a.nombre_aprendiz,'',a.apellido_aprendiz)AS'Nombre Aprendiz',
+        $consulta_datos = "SELECT CONCAT(u.nombre_usuario,' ',u.apellido_usuario)AS 'nombre usuario',
+        CONCAT(a.nombre_aprendiz,' ',a.apellido_aprendiz)AS'Nombre Aprendiz',
         a.id_aprendiz,
         a.documento,
         a.email_aprendiz,
         a.celular,
         ti.nombre_titulada,
-        ti.ficha_titulada,
-        a.fecha
+        ti.ficha_titulada
         FROM aprendices a 
         INNER JOIN usuarios u ON u.id_usuario = a.id_usuario
         INNER JOIN tituladas ti ON ti.id_titulada = a.id_titulada
@@ -22,15 +21,14 @@
 
         $consulta_total = "SELECT COUNT(id_aprendiz) FROM aprendices WHERE (nombre_aprendiz LIKE '%$busqueda%' OR apellido_aprendiz LIKE '%$busqueda%' OR documento LIKE '%$busqueda%'); ";
     }else{
-        $consulta_datos = "SELECT u.nombre_usuario,
-        CONCAT(a.nombre_aprendiz,'',a.apellido_aprendiz)AS'Nombre Aprendiz',
+        $consulta_datos = "SELECT CONCAT(u.nombre_usuario,' ',u.apellido_usuario)AS 'nombre usuario',
+        CONCAT(a.nombre_aprendiz,' ',a.apellido_aprendiz)AS'Nombre Aprendiz',
         a.id_aprendiz,
         a.documento,
         a.email_aprendiz,
         a.celular,
         ti.nombre_titulada,
-        ti.ficha_titulada,
-        a.fecha
+        ti.ficha_titulada
         FROM aprendices a 
         INNER JOIN usuarios u ON u.id_usuario = a.id_usuario
         INNER JOIN tituladas ti ON ti.id_titulada = a.id_titulada  
@@ -63,7 +61,6 @@
                     <th class="has-text-centered"># Contacto</th>
                     <th class="has-text-centered">Titulada</th>
                     <th class="has-text-centered">Ficha titulada</th>
-                    <th class="has-text-centered">Fecha Registro</th>
                     <th class="has-text-centered" colspan="3">Opciones</th>
                 </tr>
             </thead>
@@ -79,14 +76,13 @@
             $tabla.='
                 <tr class="has-text-centered" >
                 <td>'.$contador.'</td>
-                <td>'.$rows['nombre_usuario'].'</td>
+                <td>'.$rows['nombre usuario'].'</td>
                 <td>'.$rows['Nombre Aprendiz'].'</td>
                 <td>'.$rows['documento'].'</td>
                 <td>'.$rows['email_aprendiz'].'</td>
                 <td>'.$rows['celular'].'</td>
                 <td>'.$rows['nombre_titulada'].'</td>
                 <td>'.$rows['ficha_titulada'].'</td>
-                <td>'.$rows['fecha'].'</td>
                 <td>
                     <a href="'.$url.$pagina.'&user_art_del='.$rows['id_aprendiz'].'" class="button is-link is-rounded is-small">Articulos</a>
                 </td>
@@ -109,7 +105,7 @@
         if($total>=1){
             $tabla.='
             <tr class="has-text-centered" >
-            <td colspan="7">
+            <td colspan="9">
                 <a href="'.$url.'1" class="button is-link is-rounded is-small mt-4 mb-4">
                     Haga clic acá para recargar el listado
                 </a>
@@ -120,7 +116,7 @@
         }else{
             $tabla.='
             <tr class="has-text-centered" >
-            <td colspan="7">
+            <td colspan="9">
                 No hay registros en el sistema!
             </td>
             </tr>

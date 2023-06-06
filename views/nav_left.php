@@ -29,15 +29,14 @@
                     </span>
                 </p>
                 <ul class="drop_list_product">
-                    <a href="./nav/productos.html">Lista Articulos</a>
-                    <a href="./nav/agregar_productos.html">Nuevo articulo</a>
+                    <a href="index.php?vista=articulos">Lista Articulos</a>
+                    <a href="index.php?vista=articulo_nuevo">Nuevo articulo</a>
                 </ul>
                 </div>
                 </div>
             
             <a class="nav_a" href="index.php?vista=aprendices_lista">Aprendices</a>
             <a class="nav_a" href="index.php?vista=tituladas_lista">Tituladas</a>
-            <a class="nav_a" href="nav/empresa.html">Otros</a>
         </nav>
     </div>
 </div>
