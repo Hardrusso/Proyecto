@@ -1,12 +1,12 @@
 <article class="panel-heading"> 
         <div class="is-flex">
             <h3 class="is-size-2">
-            TITULADAS
+            APRENDICES
             </h3>
         </div>
 
         <p class="is-size-6">
-            Tituladas activas!
+            Aprendices Activos!
         </p>     
 
     </article>

@@ -10,7 +10,8 @@ if(!isset($_GET['vista']) || $_GET['vista'] == ""){
 }
 
 if(is_file('./views/'.$_GET['vista'].'.php') &&  $_GET['vista'] != 'login'){
-
+    
+    require_once('./php/main.php'); 
     include('./views/nav_left.php');
     include('./views/'.$_GET['vista'].'.php');
     include('./includes/script.php');

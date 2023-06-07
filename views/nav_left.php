@@ -1,4 +1,5 @@
-<?php require_once('./php/helper.php'); ?>
+<?php require_once('./php/conexion.php'); 
+require_once('./php/helper.php'); ?>
     <div class="container_nav"><!--Abrimos un contenedor para la parte del navegador que esta a la izquierda-->
     <div class="py-6 cont_user"><!--se abre un contenedor para agregar una imagen y unos titulos-->
         <img class="img_user" src="./images/user.png" alt="" >

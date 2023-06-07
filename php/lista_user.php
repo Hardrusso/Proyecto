@@ -2,13 +2,13 @@
 
     $inicio = ($pagina > 0) ? (($pagina * $registros)-$registros) : 0; // esta funcion es para saber donde iniciar la tabla
     $tabla = "";       
-    $id_user = $_SESSION['usuario']['id_usuario'];                                                //variable para generar todo el listado de usuarios
+    $id_user = $_SESSION['usuario']['id_usuario'];                     //variable para generar todo el listado de usuarios
 
     if(isset($busqueda) && $busqueda != ""){
 
-        $consulta_datos = "SELECT * FROM usuarios WHERE ((id_usuario != $id_user) AND (nombre_usuario LIKE %$busqueda% OR apellido_usuario LIKE %$busqueda% OR documento_usuario LIKE %$busqueda%)) ORDER BY nombre_usuario ASC LIMIT $inicio,$registros ;";
+        $consulta_datos = "SELECT * FROM usuarios WHERE ((id_usuario != $id_user) AND (nombre_usuario LIKE '%$busqueda%' OR apellido_usuario LIKE '%$busqueda%' OR documento_usuario LIKE '%$busqueda%')) ORDER BY nombre_usuario ASC LIMIT $inicio,$registros ;";
 
-        $consulta_total = "SELECT COUNT(id_usuario) FROM usuarios WHERE ((id_usuario != $id_user) AND (nombre_usuario LIKE %$busqueda% OR apellido_nombre LIKE %$busqueda% OR %$busqueda% )); ";
+        $consulta_total = "SELECT COUNT(id_usuario) FROM usuarios WHERE ((id_usuario != $id_user) AND (nombre_usuario LIKE '%$busqueda%' OR apellido_usuario LIKE '%$busqueda%' OR documento_usuario LIKE '%$busqueda%'));";
     }else{
         $consulta_datos = "SELECT * FROM usuarios WHERE id_usuario != $id_user ORDER BY nombre_usuario ASC LIMIT $inicio,$registros;";
 
@@ -116,3 +116,4 @@
     if($total>=1 && $pagina <= $Npaginas){
         echo paginador_tablas($pagina,$Npaginas,$url,2); //funcion ya definida en el archivo main.php
     }
+    ?>
