@@ -32,9 +32,7 @@
         </li>
     </ul>
     </div>
-<?php if(isset($_SESSION['error-buscador'] )): ?>
-        <?= $_SESSION['error-buscador'] ; ?>
-<?php endif; ?>
+
     <?php
     if(isset($_POST['modulo_buscador'])){
         
@@ -83,7 +81,9 @@
     require('./php/lista_user.php');
     
 }
+if(isset($_SESSION['error-buscador'] )): ?>
+    <?= $_SESSION['error-buscador'] ; ?>
+<?php endif; ?>
 
-?>
-
+<?php ob_end_flush(); ?>
 

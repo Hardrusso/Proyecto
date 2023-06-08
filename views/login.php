@@ -1,3 +1,4 @@
+<?php require_once('./php/main.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

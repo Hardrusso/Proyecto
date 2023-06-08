@@ -17,7 +17,7 @@ function actualizarDatos($sesion,$conexion){
 
 function obtenerRegistros($conexion,$tabla,$campo,$id){
 
-    $sql = "SELECT COUNT($campo) FROM $tabla ";
+    $sql = "SELECT COUNT($campo) FROM $tabla  ";
         
         if($tabla == 'usuarios'){
             $sql .= "WHERE $campo != $id ";
@@ -31,15 +31,12 @@ function obtenerRegistros($conexion,$tabla,$campo,$id){
         return $total;
 }
 
-function obtenerDatos($conexion,$tabla){
+function obtenerDatos($conexion,$tabla,$condicion){
 
-    $sql = "SELECT * FROM $tabla";
+    $sql = "SELECT * FROM $tabla $condicion";
     $obtener = mysqli_query($conexion, $sql);
 
-    $obtener = mysqli_fetch_all($obtener, MYSQLI_ASSOC);
-
-    $resultado = $obtener;
-    return $resultado;
+    return $obtener;
 }
 
 

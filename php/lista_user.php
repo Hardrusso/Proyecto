@@ -1,5 +1,4 @@
 <?php 
-
     $inicio = ($pagina > 0) ? (($pagina * $registros)-$registros) : 0; // esta funcion es para saber donde iniciar la tabla
     $tabla = "";       
     $id_user = $_SESSION['usuario']['id_usuario'];                     //variable para generar todo el listado de usuarios
@@ -96,19 +95,14 @@
             </tr>
             ';
         }
-    
-    
     }
     $tabla.=' </tbody></table></div>';
-
-    
 
     if($total>=1 && $pagina <= $Npaginas){
         $tabla.='
         <p class="has-text-right">Mostrando usuarios <strong>'.$pag_inicio.'</strong> al <strong>'.$pag_final.'</strong> de un <strong>total de '.$total.'</strong></p>
         ';
     }
-
 
     mysqli_close($db);
     echo $tabla;
