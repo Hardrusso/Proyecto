@@ -46,15 +46,15 @@ if(isset($_POST['enviar'])){
 <!-- TERMINA LA SECCION DEL BUSCADOR -->
 
 <!-- SECCION PARA EL BUSCADOR CON js -->
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <form class="d-flex">
     <label for="search" class="label">Ingrese que articulo deseas buscar con JS</label>
         <input class="light-table-filter input" data-table="table_id" type="text">
         <hr>
     </form>
-</div>
+</div> -->
 <!-- TERMINA LA SECCION DEL BUSCADOR -->
-<table class="table table_id">
+<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth table_id">
     <thead>
         <tr>
             <th>#</th>

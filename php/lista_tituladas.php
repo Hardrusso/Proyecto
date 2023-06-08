@@ -29,7 +29,7 @@
     $tabla.='
         <div class="table-container">
 
-        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth table_id">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
                 <tr class="has-text-centered">
                     <th class="has-text-centered">#</th>

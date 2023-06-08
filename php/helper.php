@@ -10,7 +10,6 @@ function actualizarDatos($sesion,$conexion){
     if($consulta && mysqli_num_rows($consulta)==1){
         $resultado = $consulta;
     }
-
     return $resultado; 
 
 }

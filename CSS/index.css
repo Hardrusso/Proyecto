@@ -189,3 +189,6 @@ border-bottom: 2px solid red;
 #modal-card{
     width: 1100px;
 }
+#buscador{
+    display: none;
+}

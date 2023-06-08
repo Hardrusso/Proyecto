@@ -106,7 +106,7 @@
             </div>
             <div class="column">
                 <div class="control">
-                    <label class="label">Titulada: <a class="js-modal-trigger tag is-success" id="mi-modal-tituladas" data-target="modal_buscar_tituladas">Buscar</a></label>
+                    <label class="label">Titulada: <a class="tag is-success" id="modal-tituladas" data-target="modal_buscar_titulada">Buscar</a></label>
                     <input class="input" type="text" value="" disabled>
                     <input type="hidden" type="text" name="titulada">
                 </div>
@@ -127,25 +127,10 @@
 </form>    
 <?php BorrarErrores(); ?>
 
-<!-- ### MODAL PARA BUSCAR TITULADAS ### -->
+<!-- ### SECCION PARA BUSCAR TITULADAS ### -->
 
-<div class="modal" id="modal_buscar_tituladas" >
-    <div class="modal-background"></div>
-    <div class="modal-card">
-        <header class="modal-card-head">
-            <p class="modal-card-title">Buscar titulada</p>
-            <button class="delete" aria-label="close"></button>
-        </header>
-    <section class="modal-card-body" >
+    <?php include('./php/modal_tituladas.php'); ?>
 
-    <!-- Contenido del modal-->
-    <?php require('./php/modal_tituladas.php'); ?>
-<!-- se acaba el contenido del modal -->
-
-</div>
-</div>
-
-<!-- ### SE TERMINA LA SECCION DEL MODAL ### -->
-
+<!-- ### SECCION SE TERMINA LA SECCION  ### -->
+<script src="./js/funcion_select_tituladas.js"></script>
 <script src="./js/val_form_registro_aprendiz.js"></script>
-<script src="./js/modal.js"></script>
