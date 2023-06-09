@@ -1,6 +1,6 @@
 // Obtener el campo de entrada de texto y el contenedor de resultados
-var campoBusqueda = $("#texto-busqueda");
-var contenedorResultados = $("#resultado-busqueda");
+var campoBusqueda = $("#buscar_articulos");
+var contenedorResultados = $("#resultado-articulos");
 
 // Escuchar el evento "input" para realizar la búsqueda en tiempo real
 campoBusqueda.on("input", function() {
@@ -16,7 +16,7 @@ if (busqueda.trim() === "") {
 
 // Enviar la solicitud de búsqueda mediante AJAX
 $.ajax({
-    url: "php/modal_tituladas.php",
+    url: "php/modal_articulos.php",
     method: "POST",
     data: { busqueda: busqueda },
     success: function(response) {
@@ -28,17 +28,14 @@ $.ajax({
 });
 
 $(document).ready(function() {
-    $('#guardarBtn').click(function() {
+    $('#guardar').click(function() {
     var primerCheckboxSeleccionado = $('input[type="checkbox"]:checked').first().val();
-    $('#mostrarInput').val(primerCheckboxSeleccionado); // Mostrar el primer valor seleccionado en el input
+    $('#InputArticulos').val(primerCheckboxSeleccionado); // Mostrar el primer valor seleccionado en el input
 
-    $('input[name="id_titulada"]').val(primerCheckboxSeleccionado);
+    $('input[name="id_articulo"]').val(primerCheckboxSeleccionado);
     $('#miFormulario').submit();
     $('#modal_titu').removeClass('is-active'); // Cierra el modal
     });
 });
-
-
-
 
 

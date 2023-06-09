@@ -39,6 +39,4 @@ function obtenerDatos($conexion,$tabla,$condicion){
 }
 
 
-
-
 ?>

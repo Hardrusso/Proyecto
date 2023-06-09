@@ -1,3 +1,4 @@
+
 <article class="panel-heading mb-5"> 
     <div class="is-flex">
             <h3 class=" is-size-2 " >Nuevo Aprendiz</h3>
@@ -42,7 +43,6 @@
     <?php endif; ?>
     
 
-
 <form action="./php/guardar_aprendiz.php" class="box" autocomplete="off" id="form_aprendiz"  method="POST">
 
     <div class="columns">
@@ -51,22 +51,56 @@
             <input class="input" type="text" name="documento" value="<?= $_SESSION['usuario']['usuario_usuario']?>" disabled>
             <input type="hidden" name="usuario" value="<?= $_SESSION['usuario']['id_usuario']?>">
         </div>
-        
         <div class="column">
-            <div class="control">
-                <label class="label">Nombres</label>
-                <input class="input" type="text" name="nombre_aprendiz" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" placeholder="Ingresa el nombre del aprendiz">
+                <div class="control">
+                    <label class="label">Titulada: <a class="tag is-success js-modal-trigger" id="modal-tituladas" data-target="modal_titu">Buscar</a></label>
+                <?php
+                if(isset($_POST['id_titulada'])){
+                include('./php/mostrar_titulada.php');
+                }else{
+                    echo'
+                    <input class="input" type="text" value="" disabled>
+                    </div>
+                    </div>
+
+                    <div class="column">
+                    <div class="control">
+                            <label class="label">Ficha titulada:</label>
+                            <input class="input" type="text" value="" disabled>
+                        </div>
+                    </div>
+                    ';
+                }
+    ?>
+</div>
+<div class="columns">
+        <div class="column">
+                <div class="control">
+                    <label class="label">Articulos: <a class="tag is-success js-modal-trigger"  data-target="modal_articulos">Buscar</a></label>
+                <?php
+                if(isset($_POST['id_articulo'])){
+                include('./php/mostrar_articulos.php');
+                }else{
+                    echo'
+                    <input class="input" type="text" placeholder="Busca los articulos correspondientes"  disabled>
+                </div>
             </div>
-            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'documento'):"" ?>
+
+            <div class="column">
+            <div class="control">
+                <label class="label">Nombre articulo 2</label>
+                <input class="input" type="text" placeholder="Define el nombre de tu articulo" disabled>
+            </div>
         </div>
         <div class="column">
             <div class="control">
-                <label class="label">Apellidos</label>
-                <input class="input" type="text" name="apellido_aprendiz" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" placeholder="Ingresa el apellido del aprendiz">
+                <label class="label">Serial de articulos</label>
+                <input class="input" type="text" placeholder="Seriales de los dos articulos" disabled>
             </div>
-            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'nombres'):"" ?>
-        </div>
-    </div>
+        </div>';
+    }
+    ?>
+</div>
 
     <div class="columns">
         <div class="column">
@@ -95,7 +129,7 @@
                 <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'usuario'):"" ?>
             </div>
     </div>
-    
+
     <div class="columns">
         <div class="column">
                 <div class="control">
@@ -104,27 +138,29 @@
                 </div>
                 <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'contraseña'):"" ?>
             </div>
-            <div class="column">
-                <div class="control">
-                    <label class="label">Titulada: <a class="tag is-success js-modal-trigger" id="modal-tituladas" data-target="modal_titu">Buscar</a></label>
-                    <input class="input" type="text" value="" disabled>
-                    <input type="hidden" type="text" name="titulada">
-                </div>
-            </div>
 
             <div class="column">
             <div class="control">
-                    <label class="label">Ficha titulada:</label>
-                    <input class="input" type="text" value="" disabled>
-                </div>
+                <label class="label">Nombres</label>
+                <input class="input" type="text" name="nombre_aprendiz" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" placeholder="Ingresa el nombre del aprendiz">
             </div>
-
+            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'documento'):"" ?>
+        </div>
+        <div class="column">
+            <div class="control">
+                <label class="label">Apellidos</label>
+                <input class="input" type="text" name="apellido_aprendiz" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" placeholder="Ingresa el apellido del aprendiz">
+            </div>
+            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'nombres'):"" ?>
+        </div>
     </div>
+
         <div class="has-text-centered my-4">
             <button class="button is-success px-5 title is-6" type="submit" value="Registrar"><img src="./images/save.png" alt="" class="mr-2">Registrar</button>
         </div>
 
 </form>    
+
 <?php BorrarErrores(); ?>
 
 <!-- ### SECCION PARA BUSCAR TITULADAS ### -->
@@ -142,16 +178,43 @@
                     <label for="buscar_titulada" class="label mr-4">Introduce nombre o # de ficha:</label>
                     <input type="text" class="input" id="texto-busqueda">
                 </div>
-                <div id="resultado-busqueda" class="mb-3"></div> 
 
-            <button type="button" class="button is-success title is-6" id="select">Seleccionar</button>
+                <div id="resultado-busqueda" class="mb-3"></div> 
+            <form action="" method="POST" autocomplete="off">
+                <input type="hidden" value="" name="id_titulada" id="mostrarInput">
+                <button type="submit" class="button is-success title is-6" id="guardarBtn">Seleccionar</button>
+        </form>
         </section>
     </div>
 </div>
 <!-- SE ACABA LA SECCION DEL MODAL -->
 
 
-<!-- ### SECCION SE TERMINA LA SECCION  ### -->
+<!-- ### SECCION PARA BUSCAR TITULADAS ### -->
+<div class="modal" id="modal_articulos">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Buscar articulo</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <!-- contenido del modal -->
+
+                <div class="is-flex is-flex-direction-column">
+                    <label for="buscar_articulos" class="label mr-4">Introduce nombre o # de ficha:</label>
+                    <input type="text" class="input" id="texto-busqueda">
+                </div>
+
+                <div id="resultado-articulos" class="mb-3"></div> 
+            <form action="" method="POST" autocomplete="off">
+                <input type="hidden" value="" name="id_articulo" id="mostrarInput">
+                <button type="submit" class="button is-success title is-6" id="guardar">Seleccionar</button>
+        </form>
+        </section>
+    </div>
+</div>
+<!-- SE ACABA LA SECCION DEL MODAL -->
 <script src="./js/funcion_select_tituladas.js"></script>
 <script src="./js/modal.js"></script>
 <script src="./js/val_form_registro_aprendiz.js"></script>

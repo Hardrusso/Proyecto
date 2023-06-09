@@ -6,7 +6,7 @@ $where = "";
 
 if(isset($_POST['busqueda'])){
     $busqueda = $_POST['busqueda'];
-
+}
     $where = " WHERE nombre_titulada LIKE '%".$busqueda."%' OR ficha_titulada LIKE '".$busqueda."' ORDER BY nombre_titulada ASC";
 
 
@@ -32,8 +32,8 @@ if(mysqli_num_rows($resultado)>0){
     while($datos = mysqli_fetch_array($resultado)){
 
         echo '
-        <tr>
-            <th><input type="checkbox" name="seleccionado" class="checkbox" id="aqui"></th>
+        <tr id="datos">
+            <th><input type="checkbox" class="checkbox" value="'.$datos['id_titulada'].'" id="checkseleccionado"></th>
             <td>'.$contador.'</td>
             <td>'.$datos['nombre_titulada'].'</td>
             <td>'.$datos['ficha_titulada'].'</td>
@@ -54,7 +54,7 @@ if(mysqli_num_rows($resultado)>0){
                 </div>
             </div>";
         }    
-}
+
 
 
 ?>
