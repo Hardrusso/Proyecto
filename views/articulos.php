@@ -38,8 +38,7 @@
 if(isset($_POST['enviar'])){
     $busqueda = $_POST['busqueda'];
         if (isset($_POST['busqueda'])){
-            $where = "WHERE nombre_articulo_1 LIKE '%".$busqueda."%' OR nombre_articulo_2  LIKE'%".$busqueda."%'
-        OR serial_articulo_1  LIKE'%".$busqueda."%' OR serial_articulo_2  LIKE'%".$busqueda."%'";
+            $where = "WHERE nombre_articulo LIKE '%".$busqueda."%'";
         }
 
 } ?>
@@ -56,33 +55,31 @@ if(isset($_POST['enviar'])){
 <!-- TERMINA LA SECCION DEL BUSCADOR -->
 <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth table_id">
     <thead>
-        <tr>
+        <tr class="has-text-centered">
             <th>#</th>
             <th>Nombre Articulo 1</th>
-            <th>Codigo</th>
-            <th>Descripcion</th>
             <th>Nombre Articulo 2</th>
-            <th>Codigo</th>
-            <th>Descripcion</th>
-            <th>Fecha Registro</th>
+            <th colspan="2">Opciones</th>
         </tr>
     </thead>
     <tbody>
 <?php 
 $resultado = obtenerDatos($db,'articulos',$where);
-while($datos = mysqli_fetch_array($resultado)){?>
+$contador = 1;
+while($datos = mysqli_fetch_array($resultado)){
+    
+    ?>
 
-        <tr>
-            <td><?= $datos['id_articulo']?></td>
-            <td><?= $datos['nombre_articulo_1']?></td>
-            <td><?= $datos['serial_articulo_1']?></td>
-            <td><?= $datos['descripcion_articulo_1']?></td>
+        <tr class="has-text-centered">
+            <td><?= $contador;?></td>
+            <td><?= $datos['nombre_articulo']?></td>
             <td><?= $datos['nombre_articulo_2']?></td>
-            <td><?= $datos['serial_articulo_2']?></td>
-            <td><?= $datos['descripcion_articulo_2']?></td>
-            <td><?= $datos['fecha']?></td>
+            <td><button class="button is-link is-rounded is-small">Editar</button></td>
+            <td><button class="button is-danger is-rounded is-small">Eliminar</button></td>
         </tr>
-<?php }; ?>     
+
+<?php $contador++; 
+    }; ?>     
 
     </tbody>
 </table>

@@ -22,7 +22,6 @@ $.ajax({
     success: function(response) {
     // Mostrar los resultados de la búsqueda en el contenedor
     contenedorResultados.html(response);
-    console.log(response)
     }
 });
 });

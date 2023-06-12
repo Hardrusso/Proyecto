@@ -84,7 +84,7 @@
                 <td>'.$rows['nombre_titulada'].'</td>
                 <td>'.$rows['ficha_titulada'].'</td>
                 <td>
-                    <a href="'.$url.$pagina.'&user_art_del='.$rows['id_aprendiz'].'" class="button is-link is-rounded is-small">Articulos</a>
+                    <a href="index.php?vista=aprendiz_articulos&aprendiz_id='.$rows['id_aprendiz'].'" class="button is-link is-rounded is-small">Ver todo</a>
                 </td>
                 <td>
                     <a href="index.php?vista=user_update&user_id_up='.$rows['id_aprendiz'].'" class="button is-success is-rounded is-small">Actualizar</a>

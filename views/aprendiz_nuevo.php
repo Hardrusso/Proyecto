@@ -36,9 +36,9 @@
         <?= $_SESSION['registrado'] ; ?>
         </div>
 
-    <?php elseif (isset($_SESSION['errorRegistro'])):?>
+    <?php elseif (isset($_SESSION['errorRegistrado'])):?>
         <div class='message is-danger'>
-        <?= $_SESSION['errorRegistro'] ; ?>
+        <?= $_SESSION['errorRegistrado'] ; ?>
         </div>
     <?php endif; ?>
     
@@ -47,10 +47,13 @@
 
     <div class="columns">
         <div class="column">
+        <div class="control">
             <label class="label">Usuario de quien registra:</label>
             <input class="input" type="text" name="documento" value="<?= $_SESSION['usuario']['usuario_usuario']?>" disabled>
             <input type="hidden" name="usuario" value="<?= $_SESSION['usuario']['id_usuario']?>">
         </div>
+        <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'usuario'):"" ?>
+    </div>
         <div class="column">
                 <div class="control">
                     <label class="label">Titulada: <a class="tag is-success js-modal-trigger" id="modal-tituladas" data-target="modal_titu">Buscar</a></label>
@@ -73,34 +76,6 @@
                 }
     ?>
 </div>
-<div class="columns">
-        <div class="column">
-                <div class="control">
-                    <label class="label">Articulos: <a class="tag is-success js-modal-trigger"  data-target="modal_articulos">Buscar</a></label>
-                <?php
-                if(isset($_POST['id_articulo'])){
-                include('./php/mostrar_articulos.php');
-                }else{
-                    echo'
-                    <input class="input" type="text" placeholder="Busca los articulos correspondientes"  disabled>
-                </div>
-            </div>
-
-            <div class="column">
-            <div class="control">
-                <label class="label">Nombre articulo 2</label>
-                <input class="input" type="text" placeholder="Define el nombre de tu articulo" disabled>
-            </div>
-        </div>
-        <div class="column">
-            <div class="control">
-                <label class="label">Serial de articulos</label>
-                <input class="input" type="text" placeholder="Seriales de los dos articulos" disabled>
-            </div>
-        </div>';
-    }
-    ?>
-</div>
 
     <div class="columns">
         <div class="column">
@@ -117,50 +92,99 @@
             <div class="column">
                 <div class="control">
                     <label class="label"># Documento</label>
-                    <input class="input" type="text" name="documento_aprendiz" pattern="[0-9]{3,20}" placeholder="Numero de Documento">
+                    <input class="input" type="text" name="documento_aprendiz" pattern="[0-9]{3,20}" >
                 </div>
-                <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'correo'):"" ?>
+                <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'documento'):"" ?>
             </div>
             <div class="column">
+            <div class="control">
+                <label class="label">Nombres</label>
+                <input class="input" type="text" name="nombre_aprendiz" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" placeholder="Nombre del aprendiz">
+            </div>
+            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'nombre'):"" ?>
+        </div>
+        
+            
+    </div>
+
+    <div class="columns">
+    <div class="column">
+            <div class="control">
+                <label class="label">Apellidos</label>
+                <input class="input" type="text" name="apellido_aprendiz" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" placeholder="Apellido del aprendiz">
+            </div>
+            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'apellido'):"" ?>
+        </div>
+        <div class="column">
                 <div class="control">
                     <label class="label">Correo</label>
                     <input class="input" type="email" name="correo_aprendiz" pattern="[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ ]{6,40}" placeholder="Ingresa email">
                 </div>
-                <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'usuario'):"" ?>
+                <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'correo'):"" ?>
             </div>
-    </div>
-
-    <div class="columns">
         <div class="column">
                 <div class="control">
                     <label class="label">Celular</label>
-                    <input class="input" type="text" name="cel_aprendiz" pattern="[0-9]{3,20}" placeholder="Ingresa # celular">
+                    <input class="input" type="text" name="cel_aprendiz" pattern="[0-9]{3,20}" placeholder="# Celular">
                 </div>
-                <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'contraseña'):"" ?>
+                <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'celular'):"" ?>
             </div>
+    </div>
 
+<div class="columns">
+        <div class="column">
+            <div class="control">
+                <label class="label">Articulos:</label>
+                <div class="control select">
+                    <select name="articulos">
+                        <?php
+                        $articulos = obtenerDatos($db,'articulos',null); 
+                            while($articulo = mysqli_fetch_assoc($articulos)){
+                                echo '<option value="'.$articulo['id_articulo'].'">'.$articulo['nombre_articulo'].' - '.$articulo['nombre_articulo_2'].'</option> ';
+                            }
+                        ?>
+                    </select>
+            </div>
+            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'articulos'):"" ?>
+            </div>
+        </div>
             <div class="column">
             <div class="control">
-                <label class="label">Nombres</label>
-                <input class="input" type="text" name="nombre_aprendiz" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" placeholder="Ingresa el nombre del aprendiz">
+                <label class="label">Codigo #1</label>
+                <input class="input" type="text" name="codigo1" pattern="[0-9]{3,15}" placeholder="Ingrese numero de producto">
             </div>
-            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'documento'):"" ?>
+            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'codigo1'):"" ?>
         </div>
         <div class="column">
             <div class="control">
-                <label class="label">Apellidos</label>
-                <input class="input" type="text" name="apellido_aprendiz" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" placeholder="Ingresa el apellido del aprendiz">
+                <label class="label">Descripcion 1</label>
+                <textarea class="input" name="descripcion1"></textarea>
             </div>
-            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'nombres'):"" ?>
+            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'descripcion1'):"" ?>
         </div>
-    </div>
+</div>
+<div class="columns">
+            <div class="column">
+            <div class="control">
+                <label class="label">Codigo #2</label>
+                <input class="input" type="text" name="codigo2" pattern="[0-9]{3,15}" placeholder="Ingrese numero de producto">
+            </div>
+            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'codigo2'):"" ?>
+        </div>
+        <div class="column">
+            <div class="control">
+                <label class="label">Descripcion 2</label>
+                <textarea class="input" name="descripcion2"></textarea>
+            </div>
+            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'descripcion2'):"" ?>
+        </div>
+</div>
 
-        <div class="has-text-centered my-4">
+<div class="has-text-centered my-4">
             <button class="button is-success px-5 title is-6" type="submit" value="Registrar"><img src="./images/save.png" alt="" class="mr-2">Registrar</button>
         </div>
 
 </form>    
-
 <?php BorrarErrores(); ?>
 
 <!-- ### SECCION PARA BUSCAR TITULADAS ### -->
@@ -176,11 +200,11 @@
 
                 <div class="is-flex is-flex-direction-column">
                     <label for="buscar_titulada" class="label mr-4">Introduce nombre o # de ficha:</label>
-                    <input type="text" class="input" id="texto-busqueda">
+                    <input type="text" class="input mb-4" id="texto-busqueda">
                 </div>
 
                 <div id="resultado-busqueda" class="mb-3"></div> 
-            <form action="" method="POST" autocomplete="off">
+            <form action="" method="POST" autocomplete="off" id="miFormulario">
                 <input type="hidden" value="" name="id_titulada" id="mostrarInput">
                 <button type="submit" class="button is-success title is-6" id="guardarBtn">Seleccionar</button>
         </form>
@@ -190,31 +214,6 @@
 <!-- SE ACABA LA SECCION DEL MODAL -->
 
 
-<!-- ### SECCION PARA BUSCAR TITULADAS ### -->
-<div class="modal" id="modal_articulos">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-        <header class="modal-card-head">
-            <p class="modal-card-title">Buscar articulo</p>
-            <button class="delete" aria-label="close"></button>
-        </header>
-        <section class="modal-card-body">
-            <!-- contenido del modal -->
-
-                <div class="is-flex is-flex-direction-column">
-                    <label for="buscar_articulos" class="label mr-4">Introduce nombre o # de ficha:</label>
-                    <input type="text" class="input" id="texto-busqueda">
-                </div>
-
-                <div id="resultado-articulos" class="mb-3"></div> 
-            <form action="" method="POST" autocomplete="off">
-                <input type="hidden" value="" name="id_articulo" id="mostrarInput">
-                <button type="submit" class="button is-success title is-6" id="guardar">Seleccionar</button>
-        </form>
-        </section>
-    </div>
-</div>
-<!-- SE ACABA LA SECCION DEL MODAL -->
 <script src="./js/funcion_select_tituladas.js"></script>
 <script src="./js/modal.js"></script>
 <script src="./js/val_form_registro_aprendiz.js"></script>

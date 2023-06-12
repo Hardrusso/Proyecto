@@ -25,21 +25,21 @@
                 <p class="is-size-5 pb-4"><?= $datos['nombre_usuario'] ?> </p> <!-- Creamos un párrafo-->
             </a> <!-- Cierra la etiqueta 'a' -->
 
-            <a href="nav/usuarios.html" class="iconos has-text-centered">
+            <a href="index.php?vista=usuarios_lista" class="iconos has-text-centered">
                 <h2 class="title is-5">USUARIOS</h2>
                 <i class='bx bxs-user-account bx-lg mb-3'></i>
                 <p class="is-size-5 pb-4"><?= $totalUsuarios; ?> Registrados</p>
                 
             </a>
-            <a href="nav/devoluciones.html" class="iconos has-text-centered">
+            <a href="index.php?vista=aprendices_lista" class="iconos has-text-centered">
                 <h2 class="titulo_productos title is-5">APRENDICES</h2>
                 <p class="is-size-5"><?= $totalAprendiz; ?> Registrados</p>
             </a>
-            <a href="./nav/productos.html" class="iconos has-text-centered">
+            <a href="index.php?vista=tituladas_lista" class="iconos has-text-centered">
                 <h2 class="titulo_productos title is-5">TITULADAS</h2>
                 <p class="is-size-5"><?= $totaltitulada; ?> Registrados</p>
             </a>
-            <a href="nav/empresa.html" class="iconos has-text-centered">
+            <a href="index.php?vista=articulos" class="iconos has-text-centered">
                 <h2 class="titulo_productos title is-5">ARTICULOS</h2>
                 <p class="is-size-5"><?= $totalarticulo; ?> Registrados</p>
             </a>
@@ -47,3 +47,5 @@
 
         <?php endwhile;
             endif; ?>
+
+

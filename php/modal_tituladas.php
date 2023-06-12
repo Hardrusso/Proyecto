@@ -33,7 +33,7 @@ if(mysqli_num_rows($resultado)>0){
 
         echo '
         <tr id="datos">
-            <th><input type="checkbox" class="checkbox" value="'.$datos['id_titulada'].'" id="checkseleccionado"></th>
+            <th><input type="checkbox" class="checkbox" name="id_titulada" value="'.$datos['id_titulada'].'" id="checkseleccionado"></th>
             <td>'.$contador.'</td>
             <td>'.$datos['nombre_titulada'].'</td>
             <td>'.$datos['ficha_titulada'].'</td>
@@ -55,7 +55,7 @@ if(mysqli_num_rows($resultado)>0){
             </div>";
         }    
 
-
+mysqli_close($db);
 
 ?>
 

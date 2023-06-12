@@ -25,13 +25,7 @@ CREATE TABLE tituladas(
 
 CREATE TABLE articulos(
     id_articulo int(3) auto_increment not null,
-    nombre_articulo_1 varchar(20),
-    serial_articulo_1 varchar(20),
-    descrpcion_articulo_1 varchar (50),
-    nombre_articulo_2 varchar(20),
-    serial_articulo_2 varchar(20),
-    descrpcion_articulo_2 varchar (50),
-    fecha date,
+    nombre_articulo varchar(20),
     CONSTRAINT pk_articulos PRIMARY KEY (id_articulo)
 )Engine=InnoDB;
 
@@ -45,6 +39,11 @@ CREATE TABLE aprendices(
     apellido_aprendiz varchar(20) not null,
     email_aprendiz varchar(50) not null,
     celular varchar (15),
+    serial_articulo_1 varchar(20),
+    descrpcion_articulo_1 varchar (50),
+    serial_articulo_2 varchar(20),
+    descrpcion_articulo_2 varchar (50),
+    fecha date,
     id_articulo int (3) not null,
     CONSTRAINT pk_aprendices PRIMARY KEY (id_aprendiz),
     CONSTRAINT fk_aprendiz_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
@@ -52,18 +51,7 @@ CREATE TABLE aprendices(
     CONSTRAINT fk_aprendiz_articulo FOREIGN KEY (id_articulo) REFERENCES articulos(id_articulo)
 )ENGINE=InnoDB;
 
-SELECT u.nombre_usuario,
-    CONCAT(a.nombre_aprendiz,'',a.apellido_aprendiz)AS'Nombre Aprendiz',
-    a.documento,
-    a.email_aprendiz,
-    a.celular,
-    ti.nombre_titulada,
-    ti.ficha_titulada,
-    a.fecha
-    FROM aprendices a 
-    INNER JOIN usuarios u ON u.id_usuario = a.id_usuario
-    INNER JOIN tituladas ti ON ti.id_titulada = a.id_titulada
-    WHERE a.id_aprendiz = 1;
+
     
 
 
