@@ -21,20 +21,22 @@
 
         $consulta_total = "SELECT COUNT(id_aprendiz) FROM aprendices WHERE (nombre_aprendiz LIKE '%$busqueda%' OR apellido_aprendiz LIKE '%$busqueda%' OR documento LIKE '%$busqueda%'); ";
     }else{
-        $consulta_datos = "SELECT CONCAT(u.nombre_usuario,' ',u.apellido_usuario)AS 'nombre usuario',
-        CONCAT(a.nombre_aprendiz,' ',a.apellido_aprendiz)AS'Nombre Aprendiz',
+        $consulta_datos = "SELECT r.*,
         a.id_aprendiz,
         a.documento,
-        a.email_aprendiz,
-        a.celular,
-        ti.nombre_titulada,
-        ti.ficha_titulada
-        FROM aprendices a 
-        INNER JOIN usuarios u ON u.id_usuario = a.id_usuario
-        INNER JOIN tituladas ti ON ti.id_titulada = a.id_titulada  
-        ORDER BY nombre_aprendiz ASC LIMIT $inicio,$registros;";
+        CONCAT(a.nombre_aprendiz,' ',a.apellido_aprendiz) AS 'nombre completo',
+        a.serial_articulo_1,
+        a.descrpcion_articulo_1,
+        a.serial_articulo_2,
+        a.descrpcion_articulo_2,
+        art.nombre_articulo,
+        art.nombre_articulo_2
+        FROM registro r 
+        INNER JOIN aprendices a ON a.id_aprendiz = r.id_aprendiz
+        INNER JOIN articulos art ON art.id_articulo = a.id_articulo
+        ;";
 
-        $consulta_total = "SELECT COUNT(id_aprendiz) FROM aprendices ;";
+        $consulta_total = "SELECT COUNT(id_registro) FROM registro;";
     }
 
     $datos = mysqli_query($db, $consulta_datos);
@@ -54,13 +56,16 @@
             <thead>
                 <tr class="has-text-centered">
                     <th class="has-text-centered">#</th>
-                    <th class="has-text-centered">Nombre Usuario</th>
-                    <th class="has-text-centered">Nombre aprendiz</th>
                     <th class="has-text-centered">Documento</th>
-                    <th class="has-text-centered">Correo</th>
-                    <th class="has-text-centered"># Contacto</th>
-                    <th class="has-text-centered">Titulada</th>
-                    <th class="has-text-centered">Ficha titulada</th>
+                    <th class="has-text-centered">Nombre aprendiz</th>
+                    <th class="has-text-centered">Articulo 1</th>
+                    <th class="has-text-centered">Serial</th>
+                    <th class="has-text-centered">Descripcion</th>
+                    <th class="has-text-centered">Articulo 2</th>
+                    <th class="has-text-centered">Serial</th>
+                    <th class="has-text-centered">Descripcion</th>
+                    <th class="has-text-centered">Fecha</th>
+                    <th class="has-text-centered">Hora</th>
                     <th class="has-text-centered">Opciones</th>
                 </tr>
             </thead>
@@ -76,15 +81,18 @@
             $tabla.='
                 <tr class="has-text-centered" >
                 <td>'.$contador.'</td>
-                <td>'.$rows['nombre usuario'].'</td>
-                <td>'.$rows['Nombre Aprendiz'].'</td>
                 <td>'.$rows['documento'].'</td>
-                <td>'.$rows['email_aprendiz'].'</td>
-                <td>'.$rows['celular'].'</td>
-                <td>'.$rows['nombre_titulada'].'</td>
-                <td>'.$rows['ficha_titulada'].'</td>
+                <td>'.$rows['nombre completo'].'</td>
+                <td>'.$rows['nombre_articulo'].'</td>
+                <td>'.$rows['serial_articulo_1'].'</td>
+                <td>'.$rows['descrpcion_articulo_1'].'</td>
+                <td>'.$rows['nombre_articulo_2'].'</td>
+                <td>'.$rows['serial_articulo_2'].'</td>
+                <td>'.$rows['descrpcion_articulo_2'].'</td>
+                <td>'.$rows['fecha_registro'].'</td>
+                <td>'.$rows['hora_registro'].'</td>
                 <td>
-                    <a href="index.php?vista=aprendiz_articulos&aprendiz_id='.$rows['id_aprendiz'].'" class="button is-link is-rounded is-small">Ver todo</a>
+                    <a href="index.php?vista=aprendiz_articulos&aprendiz_id='.$rows['id_registro'].'" class="button is-danger is-rounded is-small">Eliminar</a>
                 </td>
                 </tr>
             ';

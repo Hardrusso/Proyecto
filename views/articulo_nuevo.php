@@ -48,7 +48,7 @@
                 <label class="label">Nombre Articulo:</label>
                 <input class="input" type="text" name="articulo" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" placeholder="Define tu articulo">
             </div>
-            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'documento'):"" ?>
+            <?php echo isset($_SESSION['errores']) ? mostrarAlerta($_SESSION['errores'],'articulo'):"" ?>
         </div>
         <div class="column">
             <div class="control">

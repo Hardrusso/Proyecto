@@ -226,7 +226,7 @@ if(!empty($datos_user)):
 
         <div class="checkbox">
             <input type="checkbox" name="delete" id="check_confirm">
-            <label for="delete" class="has-text-danger">Eliminar esta cuenta!</label>
+            <label for="delete" class="has-text-danger">Al eliminar la cuenta se borraran los aprendices registrados!</label>
         </div>
     </section>
     

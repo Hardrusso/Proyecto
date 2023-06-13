@@ -11,32 +11,11 @@
         <nav class="nav">
             <a class="nav_a" href="index.php?vista=home">Home</a>
             <a class="nav_a" href="index.php?vista=perfil">Perfil</a>
-            
-                <div class="drop1"><!--Abrimos un contenedor para el primer dropdown -->
-                <p class="drop_title">Usuarios
-                    <span>
-                    </span>
-                </p>
-                <div class="drop_list">
-                    <a href="index.php?vista=usuarios_lista">lista Usuarios</a>
-                    <a href="index.php?vista=usuario_nuevo"></i>Nuevo Usuario</a>
-                </div>
-                </div>
-
-                <div class="drop1"><!--Abrimos un contenedor para el segundo dropdown -->
-                <p class="drop_title_product">Articulos
-                    <span>
-                    </span>
-                </p>
-                <ul class="drop_list_product">
-                    <a href="index.php?vista=articulos">Lista Articulos</a>
-                    <a href="index.php?vista=articulo_nuevo">Nuevo articulo</a>
-                </ul>
-                </div>
-                </div>
-            
+            <a class="nav_a" href="index.php?vista=usuarios_lista">Usuarios</a>
+            <a class="nav_a" href="index.php?vista=articulos">Articulos</a>
             <a class="nav_a" href="index.php?vista=aprendices_lista">Aprendices</a>
             <a class="nav_a" href="index.php?vista=tituladas_lista">Tituladas</a>
+            <a class="nav_a" href="index.php?vista=registro_lista">Registros</a>
         </nav>
     </div>
 </div>

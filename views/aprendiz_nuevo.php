@@ -18,7 +18,7 @@
 
         <li >
             <a href="index.php?vista=aprendices_lista">
-                <span>LISTA USUARIOS</span>
+                <span>LISTA APRENDICES</span>
             </a>
         </li>
 
@@ -63,6 +63,7 @@
                 }else{
                     echo'
                     <input class="input" type="text" value="" disabled>
+                    <input type="hidden" name="titulada" >
                     </div>
                     </div>
 

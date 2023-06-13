@@ -8,7 +8,7 @@ $nombre_2 = limpiar_cadena($_POST['articulo2']);
 $errores = array();
 
 if(empty($nombre_1)){
-    $errores = "Este campo es obligatorio, Debe ir 1 articulo definido";
+    $errores['articulo'] = "Este campo es obligatorio, Debe ir 1 articulo definido";
 }else{
     $nombre_1 = ucwords(strtolower($nombre_1));
 }
@@ -16,7 +16,7 @@ if(empty($nombre_1)){
 if(empty($nombre_2)){
     $nombre_2 = null;
 }else{
-    $nombre_2 = ucwords(strtolower($nombre_1));
+    $nombre_2 = ucwords(strtolower($nombre_2));
 }
 
 if(count($errores)==0){
@@ -49,5 +49,5 @@ if(count($errores)==0){
 }
 
 mysqli_close($db);
-header('location:../index.php?vista=articulos');
+header('location:../index.php?vista=articulo_nuevo');
 ?>

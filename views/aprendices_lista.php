@@ -21,7 +21,7 @@
 
         <li class="is-active">
             <a>
-                <span>LISTA TITULADAS</span>
+                <span>LISTA APRENDICES</span>
             </a>
         </li>
 

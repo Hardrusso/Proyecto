@@ -32,7 +32,7 @@ $check = mysqli_query($db, $sql_check);
                         <p>Error de registro!</p>
                     </div>
                     <div class='message-body is-size-6'>
-                        El numero de ficha: titulada <strong>".$ficha." </strong> ya se encuentra registrado!.
+                        El numero de ficha:<strong>$ficha</strong> ya se encuentra registrado!.
                     </div>
                 </div>"; 
 
@@ -49,7 +49,7 @@ $check = mysqli_query($db, $sql_check);
                         <p>Registro Exitoso!</p>
                     </div>
                     <div class='message-body is-size-6'>
-                        La titulada <strong>".$nombreTitulada." </strong> se registro correctamente!.
+                        La titulada <strong>$nombreTitulada</strong> se registro correctamente!.
                     </div>
                 </div>"; 
 
@@ -61,7 +61,7 @@ $check = mysqli_query($db, $sql_check);
                         <p>Error de registro!</p>
                     </div>
                     <div class='message-body is-size-6'>
-                        La titulada <strong>".$nombreTitulada." </strong> no se ha podido registrar comuniquese con soporte!.
+                        La titulada <strong>$nombreTitulada</strong> no se ha podido registrar comuniquese con soporte!.
                     </div>
                 </div>"; 
 

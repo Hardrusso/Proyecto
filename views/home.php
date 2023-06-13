@@ -48,4 +48,8 @@
         <?php endwhile;
             endif; ?>
 
+<div class="has-text-centered mt-6">
+            <a href="./views/aplicacion.php" target="_blank" class="button is-primary is-medium title is-4">Iniciar Aplicación</a>
+</div>
+
 

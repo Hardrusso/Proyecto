@@ -57,7 +57,14 @@ if(is_numeric($titulada) && !empty($titulada)){
 
 
 ## VERIFICAR DOCUMENTO ##
-if(!is_numeric($documento) && empty($documento)){
+if(is_numeric($documento) && !empty($documento)){
+    $check_doc = "SELECT * FROM aprendices WHERE documento = '$documento';";
+    $execute_doc = mysqli_query($db, $check_doc);
+
+    if(mysqli_num_rows($execute_doc)==1){    
+        $errores['documento'] = "El documento ingresado ya esta registrado!";
+    }
+}else{
     $errores['documento'] = "El documento ingresado no cumple los parametros!";
 }
 
@@ -108,7 +115,7 @@ if(!is_numeric($codigo1) || empty($codigo1)){
 if(empty($descripcion1)){
     $errores['descripcion1'] = "La descripcion1 no puede estar vacia";
 }else{
-    $descripcion1 = ucwords(strtolower($descripcion1));
+    $descripcion1 = ucfirst($descripcion1);
 }
 
 ## VERIFICAR  CODIGO 2 ##
@@ -132,8 +139,8 @@ if(count($errores)==0){
 
     $sql = "INSERT INTO aprendices VALUES (null, $id_usuario,
     $id_titulada,
-    '$tipodoc',
     '$documento',
+    '$tipodoc',
     '$nombre',
     '$apellido',
     '$correo',

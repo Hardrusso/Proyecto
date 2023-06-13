@@ -26,6 +26,7 @@ CREATE TABLE tituladas(
 CREATE TABLE articulos(
     id_articulo int(3) auto_increment not null,
     nombre_articulo varchar(20),
+    nombre_articulo_2 varchar(20),
     CONSTRAINT pk_articulos PRIMARY KEY (id_articulo)
 )Engine=InnoDB;
 
@@ -33,7 +34,7 @@ CREATE TABLE aprendices(
     id_aprendiz int(3) auto_increment not null,
     id_usuario int(3) not null,
     id_titulada int(3) not null,
-    documento varchar(15) not null,
+    documento varchar(25) not null,
     tipoDoc_aprendiz varchar (20) not null,
     nombre_aprendiz varchar(20) not null,
     apellido_aprendiz varchar(20) not null,
@@ -52,6 +53,27 @@ CREATE TABLE aprendices(
 )ENGINE=InnoDB;
 
 
-    
+
+CREATE TABLE registro(
+    id_registro int(3) auto_increment not null,
+    id_aprendiz int(3) not null,
+    fecha_registro date,
+    CONSTRAINT pk_aprendices PRIMARY KEY (id_registro),
+    CONSTRAINT fk_registro_aprendiz FOREIGN KEY (id_aprendiz) REFERENCES aprendices(id_aprendiz)
+)ENGINE=InnoDB;
 
 
+$sql = "SELECT r.*,
+a.id_aprendiz,
+a.documento,
+CONCAT(a.nombre_aprendiz,' ',a.apellido_aprendiz) AS 'nombre completo',
+a.serial_articulo_1,
+a.descrpcion_articulo_1,
+a.serial_articulo_2,
+a.descrpcion_articulo_2,
+art.nombre_articulo,
+art.nombre_articulo_2
+FROM registro r 
+INNER JOIN aprendices a ON a.id_aprendiz = r.id_aprendiz
+INNER JOIN articulos art ON art.id_articulo = a.id_articulo
+;";
