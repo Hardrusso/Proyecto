@@ -59,7 +59,6 @@ if(isset($_POST['enviar'])){
             <th>#</th>
             <th>Nombre Articulo 1</th>
             <th>Nombre Articulo 2</th>
-            <th colspan="2">Opciones</th>
         </tr>
     </thead>
     <tbody>
@@ -74,8 +73,6 @@ while($datos = mysqli_fetch_array($resultado)){
             <td><?= $contador;?></td>
             <td><?= $datos['nombre_articulo']?></td>
             <td><?= $datos['nombre_articulo_2']?></td>
-            <td><button class="button is-link is-rounded is-small">Editar</button></td>
-            <td><button class="button is-danger is-rounded is-small">Eliminar</button></td>
         </tr>
 
 <?php $contador++; 

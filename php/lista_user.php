@@ -37,7 +37,6 @@
                     <th class="has-text-centered">Correo</th>
                     <th class="has-text-centered">Usuario</th>
                     <th class="has-text-centered">Rol</th>
-                    <th class="has-text-centered" colspan="2">Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,12 +58,6 @@
                 <td>'.$rows['correo_usuario'].'</td>
                 <td>'.$rows['usuario_usuario'].'</td>
                 <td>'.$rows['rol_usuario'].'</td>
-                <td>
-                    <a href="index.php?vista=user_update&user_id_up='.$rows['id_usuario'].'" class="button is-success is-rounded is-small">Actualizar</a>
-                </td>
-                <td>
-                    <a href="'.$url.$pagina.'&user_id_del='.$rows['id_usuario'].'" class="button is-danger is-rounded is-small">Eliminar</a>
-                </td>
                 </tr>
             ';
             $contador++;

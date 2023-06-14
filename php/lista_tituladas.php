@@ -36,7 +36,6 @@
                     <th class="has-text-centered">Nombre Titulada</th>
                     <th class="has-text-centered">Ficha</th>
                     <th class="has-text-centered">Jornada</th>
-                    <th class="has-text-centered" colspan="2">Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -54,12 +53,6 @@
                 <td>'.$rows['nombre_titulada'].'</td>
                 <td>'.$rows['ficha_titulada'].'</td>
                 <td>'.$rows['jornada'].'</td>
-                <td>
-                    <a href="index.php?vista=user_update&user_id_up='.$rows['id_titulada'].'" class="button is-success is-rounded is-small">Actualizar</a>
-                </td>
-                <td>
-                    <a href="'.$url.$pagina.'&user_id_del='.$rows['id_titulada'].'" class="button is-danger is-rounded is-small">Eliminar</a>
-                </td>
                 </tr>
             ';
             $contador++;

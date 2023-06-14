@@ -23,10 +23,10 @@
     }
 
     $pagina = limpiar_cadena($pagina);
-    $url = "index.php?vista=lista_registro&page=";  //esta variable va a contener la url completa del sistema de la tabla
-    $registros = 10;                               // esta va a mostrar el numero total de registrados en cada pagina
-    $busqueda = "";                                //esta variable se va a usar para realizar la busqueda
+    $url="index.php?vista=registro_lista&page=";  //esta variable va a contener la url completa del sistema de la tabla
+    $registros=8;                               // esta va a mostrar el numero total de registrados en cada pagina
+    $busqueda="";                                //esta variable se va a usar para realizar la busqueda
 
-    require('./php/lista_registro.php');
+    require_once('./php/lista_registro.php');
 ?>
 

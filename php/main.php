@@ -111,7 +111,7 @@ function paginador_tablas($pagina,$Npaginas,$url,$botones){
 function mostrarAlerta($errores,$parametro){
 	$alerta = "";
 	if(isset($errores[$parametro]) && !empty($parametro)){
-		$alerta = "<p class='error'>". $errores[$parametro]."</p>";
+		$alerta = "<p class='error has-text-centered mt-3'>". $errores[$parametro]."</p>";
 	}
 	return $alerta;
 }

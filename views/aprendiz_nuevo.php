@@ -21,12 +21,6 @@
                 <span>LISTA APRENDICES</span>
             </a>
         </li>
-
-        <li >
-            <a href="index.php?vista=aprendiz_search">
-                <span>BUSCAR</span>
-            </a>
-        </li>
     </ul>
 </div>
 

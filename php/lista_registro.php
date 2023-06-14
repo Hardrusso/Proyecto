@@ -3,27 +3,8 @@
     $inicio = ($pagina > 0) ? (($pagina * $registros)-$registros) : 0; // esta funcion es para saber donde iniciar la tabla
     $tabla = "";       
 
-
-    if(isset($busqueda) && $busqueda != ""){
-
-        $consulta_datos = "SELECT CONCAT(u.nombre_usuario,' ',u.apellido_usuario)AS 'nombre usuario',
-        CONCAT(a.nombre_aprendiz,' ',a.apellido_aprendiz)AS'Nombre Aprendiz',
-        a.id_aprendiz,
-        a.documento,
-        a.email_aprendiz,
-        a.celular,
-        ti.nombre_titulada,
-        ti.ficha_titulada
-        FROM aprendices a 
-        INNER JOIN usuarios u ON u.id_usuario = a.id_usuario
-        INNER JOIN tituladas ti ON ti.id_titulada = a.id_titulada
-        WHERE (a.nombre_aprendiz LIKE '%$busqueda%' OR a.apellido_aprendiz LIKE '%$busqueda%' OR a.documento LIKE '%$busqueda%') ORDER BY a.nombre_aprendiz ASC LIMIT $inicio,$registros ";
-
-        $consulta_total = "SELECT COUNT(id_aprendiz) FROM aprendices WHERE (nombre_aprendiz LIKE '%$busqueda%' OR apellido_aprendiz LIKE '%$busqueda%' OR documento LIKE '%$busqueda%'); ";
-    }else{
         $consulta_datos = "SELECT r.*,
         a.id_aprendiz,
-        a.documento,
         CONCAT(a.nombre_aprendiz,' ',a.apellido_aprendiz) AS 'nombre completo',
         a.serial_articulo_1,
         a.descrpcion_articulo_1,
@@ -34,19 +15,18 @@
         FROM registro r 
         INNER JOIN aprendices a ON a.id_aprendiz = r.id_aprendiz
         INNER JOIN articulos art ON art.id_articulo = a.id_articulo
-        ;";
+        ORDER BY a.nombre_aprendiz ASC LIMIT $inicio,$registros;";
 
         $consulta_total = "SELECT COUNT(id_registro) FROM registro;";
-    }
 
     $datos = mysqli_query($db, $consulta_datos);
     $datos = mysqli_fetch_all($datos, MYSQLI_ASSOC);
-    
+
 
     $total = mysqli_query($db, $consulta_total);
     $total = mysqli_fetch_array($total);
     $total = (int)$total[0];
-
+    
 
     $Npaginas = ceil($total/$registros);
 
@@ -56,7 +36,6 @@
             <thead>
                 <tr class="has-text-centered">
                     <th class="has-text-centered">#</th>
-                    <th class="has-text-centered">Documento</th>
                     <th class="has-text-centered">Nombre aprendiz</th>
                     <th class="has-text-centered">Articulo 1</th>
                     <th class="has-text-centered">Serial</th>
@@ -81,7 +60,6 @@
             $tabla.='
                 <tr class="has-text-centered" >
                 <td>'.$contador.'</td>
-                <td>'.$rows['documento'].'</td>
                 <td>'.$rows['nombre completo'].'</td>
                 <td>'.$rows['nombre_articulo'].'</td>
                 <td>'.$rows['serial_articulo_1'].'</td>
@@ -97,11 +75,10 @@
                 </tr>
             ';
             $contador++;
-        
         }
         
         $pag_final=$contador-1; //variable para saber en que pocision de la pagina final estamos mostrado en el texto "mostrando usuarios"
-
+        
     }else{
 
         if($total>=1){
@@ -118,7 +95,7 @@
         }else{
             $tabla.='
             <tr class="has-text-centered" >
-            <td colspan="9">
+            <td colspan="12">
                 No hay registros en el sistema!
             </td>
             </tr>
@@ -127,6 +104,7 @@
     
     
     }
+    mysqli_close($db);
     $tabla.=' </tbody></table></div>';
 
     
@@ -138,9 +116,9 @@
     }
 
 
-    mysqli_close($db);
+
     echo $tabla;
 
     if($total>=1 && $pagina <= $Npaginas){
-        echo paginador_tablas($pagina,$Npaginas,$url,2); //funcion ya definida en el archivo main.php
+        echo paginador_tablas($pagina,$Npaginas,$url,3); //funcion ya definida en el archivo main.php
     }

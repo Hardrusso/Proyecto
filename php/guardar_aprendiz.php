@@ -139,8 +139,8 @@ if(count($errores)==0){
 
     $sql = "INSERT INTO aprendices VALUES (null, $id_usuario,
     $id_titulada,
-    '$documento',
     '$tipodoc',
+    '$documento',
     '$nombre',
     '$apellido',
     '$correo',

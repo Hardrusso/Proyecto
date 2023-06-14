@@ -11,45 +11,39 @@
             $totalUsuarios = obtenerRegistros($db,'usuarios','id_usuario',$_SESSION['usuario']['id_usuario']);
             $totaltitulada = obtenerRegistros($db,'tituladas','id_titulada',null);
             $totalarticulo = obtenerRegistros($db,'articulos','id_articulo',null);
+            $totalRegistro = obtenerRegistros($db,'registro','id_registro',null);
         ?>
 
-    <?php $datos_user = actualizarDatos($_SESSION['usuario'], $db);
-        if(!empty($datos_user)):
-        while($datos = mysqli_fetch_assoc($datos_user)):
+<div class="panel_iconos is-flex is-justify-content-space-around is-align-content-center"><!--Abrimos un contenedor para los botones de navegacion-->
+    <a href="index.php?vista=usuarios_lista" class="iconos has-text-centered">
+        <h2 class="title is-5">USUARIOS</h2>
+        <p class="is-size-5 pb-4"><?= $totalUsuarios; ?> Registrados</p>
+    </a>
 
-    ?>
+    <a href="index.php?vista=aprendices_lista" class="iconos has-text-centered">
+        <h2 class="titulo_productos title is-5">APRENDICES</h2>
+        <p class="is-size-5"><?= $totalAprendiz; ?> Registrados</p>
+    </a>
 
-        <div class="panel_iconos is-flex is-justify-content-space-around is-align-content-center"><!--Abrimos un contenedor para los botones de navegacion-->
-            <a href="index.php?vista=perfil" class="iconos has-text-centered"> <!-- Inicia etiqueta 'a' para referenciar que es un link -->
-                <h2 class="title is-5">PERFIL</h2> <!-- Crea un encabezado de nivel 2 -->
-                <p class="is-size-5 pb-4"><?= $datos['nombre_usuario'] ?> </p> <!-- Creamos un párrafo-->
-            </a> <!-- Cierra la etiqueta 'a' -->
+    <a href="index.php?vista=tituladas_lista" class="iconos has-text-centered">
+        <h2 class="titulo_productos title is-5">TITULADAS</h2>
+        <p class="is-size-5"><?= $totaltitulada; ?> Registrados</p>
+    </a>
 
-            <a href="index.php?vista=usuarios_lista" class="iconos has-text-centered">
-                <h2 class="title is-5">USUARIOS</h2>
-                <i class='bx bxs-user-account bx-lg mb-3'></i>
-                <p class="is-size-5 pb-4"><?= $totalUsuarios; ?> Registrados</p>
-                
-            </a>
-            <a href="index.php?vista=aprendices_lista" class="iconos has-text-centered">
-                <h2 class="titulo_productos title is-5">APRENDICES</h2>
-                <p class="is-size-5"><?= $totalAprendiz; ?> Registrados</p>
-            </a>
-            <a href="index.php?vista=tituladas_lista" class="iconos has-text-centered">
-                <h2 class="titulo_productos title is-5">TITULADAS</h2>
-                <p class="is-size-5"><?= $totaltitulada; ?> Registrados</p>
-            </a>
-            <a href="index.php?vista=articulos" class="iconos has-text-centered">
-                <h2 class="titulo_productos title is-5">ARTICULOS</h2>
-                <p class="is-size-5"><?= $totalarticulo; ?> Registrados</p>
-            </a>
-        </div><!--cerramos contenedor para los botones de navegacion-->
+    <a href="index.php?vista=articulos" class="iconos has-text-centered">
+        <h2 class="titulo_productos title is-5">ARTICULOS</h2>
+        <p class="is-size-5"><?= $totalarticulo; ?> Registrados</p>
+    </a>
 
-        <?php endwhile;
-            endif; ?>
+    <a href="index.php?vista=articulos" class="iconos has-text-centered">
+        <h2 class="titulo_productos title is-5">REGISTROS</h2>
+        <p class="is-size-5"><?= $totalRegistro; ?> Registrados</p>
+    </a>
+    
+</div><!--cerramos contenedor para los botones de navegacion-->
 
 <div class="has-text-centered mt-6">
-            <a href="./views/aplicacion.php" target="_blank" class="button is-primary is-medium title is-4">Iniciar Aplicación</a>
+    <a href="./views/aplicacion.php" target="_blank" class="button is-primary is-medium title is-4">Iniciar Aplicación</a>
 </div>
 
 

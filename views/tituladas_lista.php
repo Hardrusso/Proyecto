@@ -45,12 +45,6 @@
                 <span>LISTA TITULADAS</span>
             </a>
         </li>
-
-        <li >
-            <a>
-                <span>BUSCAR</span>
-            </a>
-        </li>
     </ul>
     </div>
 
