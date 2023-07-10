@@ -165,6 +165,9 @@ function BorrarErrores(){
 	if(isset($_SESSION['error-buscador'])){
 		$_SESSION['error-buscador']=null;
 	}
+	if(isset($_SESSION['delete'])){
+		$_SESSION['delete']=null;
+	}
 }
 
 

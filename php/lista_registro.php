@@ -70,7 +70,7 @@
                 <td>'.$rows['fecha_registro'].'</td>
                 <td>'.$rows['hora_registro'].'</td>
                 <td>
-                    <a href="index.php?vista=aprendiz_articulos&aprendiz_id='.$rows['id_registro'].'" class="button is-danger is-rounded is-small">Eliminar</a>
+                    <a href="./php/delete.php?id='.$rows['id_registro'].'" class="button is-danger is-rounded is-small">Eliminar</a>
                 </td>
                 </tr>
             ';
